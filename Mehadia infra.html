@@ -2,54 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mehadia Infra</title>
+<title>Mehadia Infra - LIVE</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>*{font-family:'Inter',sans-serif}</style>
 </head>
 <body class="bg-[#f6f7fb]">
-
 <div id="loginPage" class="min-h-screen flex items-center justify-center p-4 bg-[#f6f7fb]">
   <div class="bg-white rounded-[24px] p-8 w-full max-w-[380px] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border">
     <div class="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white font-extrabold">M</div>
     <h2 class="text-[22px] font-extrabold mt-5 leading-none">Mehadia Infrastructure</h2>
-    <p class="text-xs text-slate-500 mt-2">Diesel Management System</p>
-    <input id="username" placeholder="Username" class="w-full mt-7 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none focus:bg-white focus:border-slate-900">
-    <input id="password" type="password" placeholder="Password" class="w-full mt-3 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none focus:bg-white focus:border-slate-900">
-    <button onclick="login()" class="w-full mt-5 py-3.5 rounded-xl bg-slate-900 text-white font-bold hover:bg-black">Login</button>
+    <p class="text-xs text-slate-500 mt-2">Diesel Management - <span class="text-green-600 font-bold">LIVE SYNC</span></p>
+    <input id="username" placeholder="Username" class="w-full mt-7 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none">
+    <input id="password" type="password" placeholder="Password" class="w-full mt-3 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none">
+    <button onclick="login()" class="w-full mt-5 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Login</button>
   </div>
 </div>
-
 <div id="appPage" class="hidden">
   <div class="bg-white border-b sticky top-0 z-20 px-6 md:px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-3"><div class="w-9 h-9 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold">M</div><div><div class="font-extrabold text-[15px]">MEHADIA INFRA</div><div class="text-[10px] text-slate-500 tracking-widest -mt-1">INFRASTRUCTURE</div></div></div>
-    <div class="flex items-center gap-2"><span id="roleShow" class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold"></span><button onclick="logout()" class="px-3 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-bold">Logout</button></div>
+    <div class="flex items-center gap-3"><div class="w-9 h-9 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold">M</div><div><div class="font-extrabold text-[15px]">MEHADIA INFRA</div><div class="text-[10px] text-slate-500 tracking-widest -mt-1">INFRASTRUCTURE <span class="bg-green-100 text-green-700 px-2 rounded ml-1">LIVE</span></div></div></div>
+    <div class="flex items-center gap-2"><span id="roleShow" class="px-3 py-1.5 rounded-full bg-slate-100 text-[11px] font-bold"></span><button onclick="logout()" class="px-3 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-bold">Logout</button></div>
   </div>
-
   <div class="flex flex-col md:flex-row max-w-[1400px] mx-auto">
     <div class="md:w-[250px] p-4"><div class="bg-white rounded-2xl border p-2">
-      <button id="btn-entry" onclick="showTab('entry')" class="w-full text-left px-4 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">⛽ Diesel Entry</button>
-      <button id="btn-myentry" onclick="showTab('myentry')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm font-semibold mt-1">📋 My Entries</button>
+      <button onclick="showTab('entry')" class="w-full text-left px-4 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">⛽ Diesel Entry</button>
+      <button onclick="showTab('myentry')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm font-semibold mt-1">📋 My Entries</button>
       <div id="adminMenu" class="hidden"><div class="h-[1px] bg-slate-100 my-2"></div>
-        <button id="btn-all" onclick="showTab('all')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📊 All Entries</button>
-        <button id="btn-vehical" onclick="showTab('vehical')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">🚛 Vehicle</button>
-        <button id="btn-site" onclick="showTab('site')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📍 Site</button>
-        <button id="btn-user" onclick="showTab('user')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">👤 Users</button>
-        <button id="btn-report" onclick="showTab('report')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📈 Report</button>
+        <button onclick="showTab('all')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📊 All Entries</button>
+        <button onclick="showTab('vehical')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">🚛 Vehicle</button>
+        <button onclick="showTab('site')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📍 Site</button>
+        <button onclick="showTab('user')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">👤 Users</button>
+        <button onclick="showTab('report')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📈 Report</button>
       </div>
     </div></div>
-
     <div class="flex-1 p-4 md:p-6">
-      <div id="tab-entry" class="bg-white rounded-2xl border p-6 md:p-8 max-w-[650px]"><h3 class="font-bold text-[18px]">New Diesel Entry</h3><p class="text-xs text-slate-500 mt-1">Vehicle select karte hi last closing auto opening ban jayegi</p>
+      <div id="tab-entry" class="bg-white rounded-2xl border p-6 md:p-8 max-w-[650px]"><h3 class="font-bold text-[18px]">New Diesel Entry</h3>
         <label class="text-[11px] font-bold text-slate-500 mt-6 block">VEHICLE SELECT</label>
-        <select id="e_vehical" onchange="autoFillOpening()" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none"></select>
+        <select id="e_vehical" onchange="autoFillOpening()" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></select>
         <div id="lastInfo" class="hidden mt-3 px-4 py-2 rounded-xl bg-blue-50 text-blue-700 text-xs font-semibold"></div>
-        <label class="text-[11px] font-bold text-slate-500 mt-4 block">SITE</label><select id="e_site" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none"></select>
-        <div class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[11px] font-bold text-slate-500">DATE</label><input type="date" id="e_date" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none"></div><div><label class="text-[11px] font-bold text-slate-500">DIESEL (LTR)</label><input type="number" id="e_ltr" placeholder="Ex: 50" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none"></div></div>
-        <div class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[11px] font-bold text-slate-500">OPENING READING (Auto)</label><input type="number" id="e_open" placeholder="Auto ayega" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none"></div><div><label class="text-[11px] font-bold text-slate-500">CLOSING READING</label><input type="number" id="e_close" placeholder="Closing" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-white border-2 border-slate-900 outline-none font-bold"></div></div>
-        <button id="saveBtn" onclick="saveEntry()" class="w-full mt-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Save Entry</button><button id="updateBtn" onclick="updateEntry()" class="hidden w-full mt-6 py-3.5 rounded-xl bg-blue-600 text-white font-bold">Update Entry</button>
+        <label class="text-[11px] font-bold text-slate-500 mt-4 block">SITE</label><select id="e_site" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></select>
+        <div class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[11px] font-bold">DATE</label><input type="date" id="e_date" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></div><div><label class="text-[11px] font-bold">DIESEL (LTR)</label><input type="number" id="e_ltr" placeholder="50" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></div></div>
+        <div class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[11px] font-bold">OPENING (Auto)</label><input type="number" id="e_open" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></div><div><label class="text-[11px] font-bold">CLOSING</label><input type="number" id="e_close" class="w-full mt-2 px-5 py-3.5 rounded-xl border-2 border-slate-900 font-bold"></div></div>
+        <button id="saveBtn" onclick="saveEntry()" class="w-full mt-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Save Entry - Live Sync</button><button id="updateBtn" onclick="updateEntry()" class="hidden w-full mt-6 py-3.5 rounded-xl bg-blue-600 text-white font-bold">Update Entry</button>
       </div>
-
       <div id="tab-myentry" class="hidden bg-white rounded-2xl border p-6"><h3 class="font-bold">My Entries</h3><div class="flex gap-2 mt-4 flex-wrap"><input type="date" id="my_from" class="px-4 py-2.5 rounded-xl bg-slate-50 border text-sm"><input type="date" id="my_to" class="px-4 py-2.5 rounded-xl bg-slate-50 border text-sm"><button onclick="filterMy()" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold">Filter</button></div><div id="myTable" class="mt-6 overflow-auto"></div></div>
       <div id="tab-all" class="hidden bg-white rounded-2xl border p-6"><h3 class="font-bold">All Users Entries (Admin)</h3><div id="allTable" class="mt-4 overflow-auto"></div></div>
       <div id="tab-vehical" class="hidden bg-white rounded-2xl border p-6 max-w-xl"><h3 class="font-bold">Vehicle List</h3><div class="flex gap-2 mt-4"><input id="vehical_no" placeholder="Vehicle No" class="flex-1 px-5 py-3 rounded-xl bg-slate-50 border"><button onclick="addVehical()" id="vehicalBtn" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">Add</button></div><div id="vehicalList" class="mt-5"></div></div>
@@ -59,56 +54,199 @@
     </div>
   </div>
 </div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, push, set, onValue, remove, update, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-<script>
-let db=JSON.parse(localStorage.getItem('mehadia_final_db'))||{users:[{username:'admin',password:'admin123',role:'admin'},{username:'user1',password:'user123',role:'user'},{username:'user2',password:'user123',role:'user'},{username:'user3',password:'user123',role:'user'}],vehical:['MH-34 AB 1234','MH-34 CD 5678'],site:['Tukum Site','Chandrapur Bypass'],entries:[]};
+const firebaseConfig = {
+  apiKey: "AIzaSyAEbSF9JNzP80PmYQ0GVBDShyEVco3F0",
+  authDomain: "mehadia-infrastructure.firebaseapp.com",
+  databaseURL: "https://mehadia-infrastructure-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "mehadia-infrastructure",
+  storageBucket: "mehadia-infrastructure.firebasestorage.app",
+  messagingSenderId: "213393301505",
+  appId: "1:213393301505:web:75e929a983d377d7e32000"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+let dbData = {users:[], vehical:[], site:[], entries:[]};
 let currentUser=null, editId=null, editVehicalIdx=null, editSiteIdx=null, editUserIdx=null;
-function save(){localStorage.setItem('mehadia_final_db',JSON.stringify(db))}
-function login(){let u=username.value,p=password.value,f=db.users.find(x=>x.username===u&&x.password===p);if(!f){alert("Wrong");return}currentUser=f;loginPage.style.display='none';appPage.classList.remove('hidden');roleShow.innerText=f.username+" • "+f.role.toUpperCase();if(f.role==='admin')adminMenu.classList.remove('hidden');loadAll();showTab('entry')}
-function logout(){location.reload()}
-function showTab(t){document.querySelectorAll('[id^="tab-"]').forEach(d=>d.classList.add('hidden'));document.getElementById('tab-'+t).classList.remove('hidden');if(t==='myentry')filterMy();if(t==='all')loadAllEntries();if(t==='vehical')loadVehical();if(t==='site')loadSite();if(t==='user')loadUsers()}
-function loadAll(){e_vehical.innerHTML=db.vehical.map(g=>`<option>${g}</option>`).join('');e_site.innerHTML=db.site.map(s=>`<option>${s}</option>`).join('');e_date.valueAsDate=new Date();autoFillOpening()}
 
-// ** YEH NAYA LOGIC HAI - AUTO OPENING **
-function autoFillOpening(){
-  let veh = e_vehical.value;
-  if(!veh) return;
-  let last = db.entries.filter(e=>e.vehical===veh).sort((a,b)=>b.id-a.id)[0];
-  if(last && last.close){
-    e_open.value = last.close;
-    lastInfo.classList.remove('hidden');
-    lastInfo.innerText = `Last Closing of ${veh} was ${last.close} KM on ${last.date} - Auto filled in Opening`;
-  } else {
-    e_open.value = '';
-    lastInfo.classList.add('hidden');
+const defaultData = {
+  users: [
+    {username:'admin',password:'admin123',role:'admin'},
+    {username:'user1',password:'user123',role:'user'},
+    {username:'user2',password:'user123',role:'user'},
+    {username:'user3',password:'user123',role:'user'}
+  ],
+  vehical: ['MH-34 AB 1234','MH-34 CD 5678'],
+  site: ['Tukum Site','Chandrapur Bypass']
+};
+
+async function initData(){
+  const snap = await get(ref(db, 'mehadia_v2'));
+  if(!snap.exists()){
+    await set(ref(db, 'mehadia_v2'), {...defaultData, entries: {}});
   }
 }
+initData();
 
-function saveEntry(){let e={id:Date.now(),user:currentUser.username,vehical:e_vehical.value,site:e_site.value,date:e_date.value,ltr:e_ltr.value,open:e_open.value,close:e_close.value};if(!e.ltr||!e.close)return alert("Ltr aur Closing bharo");db.entries.push(e);save();e_ltr.value='';e_close.value='';alert("Saved!");autoFillOpening();if(currentUser.role==='admin')loadAllEntries();}
-function tableHtml(data){return `<table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500"><th class="p-3 text-left">Date</th><th class="p-3 text-left">User</th><th class="p-3 text-left">Vehicle</th><th class="p-3 text-left">Site</th><th class="p-3">Ltr</th><th class="p-3">Opening</th><th class="p-3">Closing</th><th class="p-3">Run</th><th class="p-3">Action</th></tr>${data.map(e=>{let run=(e.close&&e.open)?(e.close-e.open):'-';return `<tr class="border-t"><td class="p-3">${e.date}</td><td class="p-3 font-semibold">${e.user}</td><td class="p-3 font-bold">${e.vehical}</td><td class="p-3">${e.site}</td><td class="p-3 font-bold">${e.ltr}</td><td class="p-3">${e.open||'-'}</td><td class="p-3 font-bold">${e.close||'-'}</td><td class="p-3">${run}</td><td class="p-3 flex gap-1"><button onclick="editEntry(${e.id})" class="px-2.5 py-1 bg-slate-100 rounded-full text-[11px] font-bold">Edit</button><button onclick="delEntry(${e.id})" class="px-2.5 py-1 bg-red-50 text-red-600 rounded-full text-[11px] font-bold">Del</button></td></tr>`}).join('')}</table>`}
-function filterMy(){let from=my_from.value,to=my_to.value;let data=db.entries.filter(e=>e.user===currentUser.username);if(from)data=data.filter(e=>e.date>=from);if(to)data=data.filter(e=>e.date<=to);myTable.innerHTML=tableHtml(data)}
-function loadAllEntries(){allTable.innerHTML=tableHtml(db.entries.slice().reverse())}
-function editEntry(id){let e=db.entries.find(x=>x.id===id);editId=id;e_vehical.value=e.vehical;e_site.value=e.site;e_date.value=e.date;e_ltr.value=e.ltr;e_open.value=e.open;e_close.value=e.close;showTab('entry');saveBtn.classList.add('hidden');updateBtn.classList.remove('hidden')}
-function updateEntry(){let e=db.entries.find(x=>x.id===editId);e.vehical=e_vehical.value;e.site=e_site.value;e.date=e_date.value;e.ltr=e_ltr.value;e.open=e_open.value;e.close=e_close.value;save();editId=null;saveBtn.classList.remove('hidden');updateBtn.classList.add('hidden');loadAllEntries();filterMy();showTab(currentUser.role==='admin'?'all':'myentry')}
-function delEntry(id){if(!confirm("Delete?"))return;db.entries=db.entries.filter(x=>x.id!==id);save();loadAllEntries();filterMy();genReport()}
+onValue(ref(db, 'mehadia_v2/users'), (s)=>{
+  const val = s.val();
+  if(val){ dbData.users = Array.isArray(val)? val : Object.values(val); }
+  else { dbData.users = defaultData.users; }
+  if(currentUser) loadUsers();
+});
+onValue(ref(db, 'mehadia_v2/vehical'), (s)=>{
+  const val = s.val();
+  dbData.vehical = val? (Array.isArray(val)? val : Object.values(val)) : defaultData.vehical;
+  loadAllSelects(); loadVehical();
+});
+onValue(ref(db, 'mehadia_v2/site'), (s)=>{
+  const val = s.val();
+  dbData.site = val? (Array.isArray(val)? val : Object.values(val)) : defaultData.site;
+  loadAllSelects(); loadSite();
+});
+onValue(ref(db, 'mehadia_v2/entries'), (s)=>{
+  const val = s.val();
+  if(val){ dbData.entries = Object.entries(val).map(([key, v])=>({firebaseKey:key,...v})); }
+  else { dbData.entries = []; }
+  if(currentUser){ filterMy(); loadAllEntries(); genReport(); autoFillOpening(); }
+});
 
-function addVehical(){if(editVehicalIdx!==null){db.vehical[editVehicalIdx]=vehical_no.value;editVehicalIdx=null;vehicalBtn.innerText="Add"}else{if(!vehical_no.value)return;db.vehical.push(vehical_no.value)}save();vehical_no.value='';loadVehical();loadAll()}
-function loadVehical(){vehicalList.innerHTML=db.vehical.map((g,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span class="font-bold">${g}</span><span><button onclick="editVehical(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delVehical(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join('')}
-function editVehical(i){vehical_no.value=db.vehical[i];editVehicalIdx=i;vehicalBtn.innerText="Update"}
-function delVehical(i){if(confirm("Delete?")){db.vehical.splice(i,1);save();loadVehical();loadAll()}}
+function saveToFirebase(path, array){ set(ref(db, 'mehadia_v2/'+path), array); }
 
-function addSite(){if(editSiteIdx!==null){db.site[editSiteIdx]=site_name.value;editSiteIdx=null;siteBtn.innerText="Add"}else{if(!site_name.value)return;db.site.push(site_name.value)}save();site_name.value='';loadSite();loadAll()}
-function loadSite(){siteList.innerHTML=db.site.map((s,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span>${s}</span><span><button onclick="editSite(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delSite(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join('')}
-function editSite(i){site_name.value=db.site[i];editSiteIdx=i;siteBtn.innerText="Update"}
-function delSite(i){if(confirm("Delete?")){db.site.splice(i,1);save();loadSite();loadAll()}}
-
-function addUser(){if(editUserIdx!==null){db.users[editUserIdx].username=u_name.value;db.users[editUserIdx].password=u_pass.value;editUserIdx=null;userBtn.innerText="Create"}else{if(db.users.filter(x=>x.role==='user').length>=3)return alert("Max 3");if(!u_name.value)return;db.users.push({username:u_name.value,password:u_pass.value,role:'user'})}save();u_name.value='';u_pass.value='';loadUsers()}
-function loadUsers(){userList.innerHTML=db.users.map((u,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span><b>${u.username}</b> (${u.role})</span><span>${u.role!=='admin'?`<button onclick="editUser(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delUser(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button>`:''}</span></div>`).join('')}
-function editUser(i){u_name.value=db.users[i].username;u_pass.value=db.users[i].password;editUserIdx=i;userBtn.innerText="Update"}
-function delUser(i){if(confirm("Delete?")){db.users.splice(i,1);save();loadUsers()}}
-
-function genReport(){let from=r_from.value,to=r_to.value,data=db.entries;if(from)data=data.filter(e=>e.date>=from);if(to)data=data.filter(e=>e.date<=to);let total=data.reduce((s,e)=>s+parseFloat(e.ltr||0),0);reportTable.innerHTML=tableHtml(data);totalLtr.innerText="Total Diesel: "+total+" Ltr"}
-function exportCSV(){let csv="Date,User,Vehicle,Site,Ltr,Opening,Closing,Run\n"+db.entries.map(e=>`${e.date},${e.user},${e.vehical},${e.site},${e.ltr},${e.open},${e.close},${e.close-e.open}`).join("\n");let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download="mehadia_report.csv";a.click()}
+window.login = function(){
+  let u=document.getElementById('username').value, p=document.getElementById('password').value;
+  let f=dbData.users.find(x=>x.username===u && x.password===p);
+  if(!f){ alert("Wrong Username / Password"); return; }
+  currentUser=f;
+  document.getElementById('loginPage').style.display='none';
+  document.getElementById('appPage').classList.remove('hidden');
+  document.getElementById('roleShow').innerText=f.username+" • "+f.role.toUpperCase();
+  if(f.role==='admin') document.getElementById('adminMenu').classList.remove('hidden');
+  document.getElementById('e_date').valueAsDate = new Date();
+  loadAllSelects(); window.showTab('entry');
+}
+window.logout = function(){ location.reload(); }
+window.showTab = function(t){
+  document.querySelectorAll('[id^="tab-"]').forEach(d=>d.classList.add('hidden'));
+  document.getElementById('tab-'+t).classList.remove('hidden');
+  if(t==='myentry') filterMy(); if(t==='all') loadAllEntries();
+  if(t==='vehical') loadVehical(); if(t==='site') loadSite(); if(t==='user') loadUsers();
+}
+function loadAllSelects(){
+  const ev = document.getElementById('e_vehical'); const es = document.getElementById('e_site');
+  if(ev) ev.innerHTML = dbData.vehical.map(g=>`<option>${g}</option>`).join('');
+  if(es) es.innerHTML = dbData.site.map(s=>`<option>${s}</option>`).join('');
+}
+window.loadAll = loadAllSelects;
+window.autoFillOpening = function(){
+  let veh = document.getElementById('e_vehical')?.value; if(!veh) return;
+  let last = dbData.entries.filter(e=>e.vehical===veh).sort((a,b)=>b.id-a.id)[0];
+  const lastInfo = document.getElementById('lastInfo');
+  if(last && last.close){
+    document.getElementById('e_open').value = last.close;
+    lastInfo.classList.remove('hidden');
+    lastInfo.innerText = `Last Closing of ${veh} was ${last.close} KM on ${last.date} - Auto filled`;
+  } else { document.getElementById('e_open').value = ''; if(lastInfo) lastInfo.classList.add('hidden'); }
+}
+window.saveEntry = function(){
+  let e={ id:Date.now(), user:currentUser.username, vehical:document.getElementById('e_vehical').value, site:document.getElementById('e_site').value, date:document.getElementById('e_date').value, ltr:document.getElementById('e_ltr').value, open:document.getElementById('e_open').value, close:document.getElementById('e_close').value };
+  if(!e.ltr||!e.close) return alert("Ltr aur Closing bharo");
+  push(ref(db, 'mehadia_v2/entries'), e);
+  document.getElementById('e_ltr').value=''; document.getElementById('e_close').value='';
+}
+  function tableHtml(data){
+  if(!data.length) return `<p class="text-center text-slate-400 py-6">No entries found</p>`;
+  return `<table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500"><th class="p-3 text-left">Date</th><th class="p-3 text-left">User</th><th class="p-3 text-left">Vehicle</th><th class="p-3 text-left">Site</th><th class="p-3">Ltr</th><th class="p-3">Opening</th><th class="p-3">Closing</th><th class="p-3">Run</th><th class="p-3">Action</th></tr>${data.map(e=>{
+    let run=(e.close&&e.open)?(e.close-e.open):'-';
+    return `<tr class="border-t"><td class="p-3">${e.date}</td><td class="p-3 font-semibold">${e.user}</td><td class="p-3 font-bold">${e.vehical}</td><td class="p-3">${e.site}</td><td class="p-3 font-bold">${e.ltr}</td><td class="p-3">${e.open||'-'}</td><td class="p-3 font-bold">${e.close||'-'}</td><td class="p-3">${run}</td><td class="p-3 flex gap-1"><button onclick="editEntry(${e.id})" class="px-2.5 py-1 bg-slate-100 rounded-full text-[11px] font-bold">Edit</button><button onclick="delEntry('${e.firebaseKey}')" class="px-2.5 py-1 bg-red-50 text-red-600 rounded-full text-[11px] font-bold">Del</button></td></tr>`
+  }).join('')}</table>`
+}
+window.filterMy = function(){
+  let from=document.getElementById('my_from').value, to=document.getElementById('my_to').value;
+  let data=dbData.entries.filter(e=>e.user===currentUser.username);
+  if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to);
+  data.sort((a,b)=>b.id-a.id);
+  document.getElementById('myTable').innerHTML=tableHtml(data);
+}
+window.loadAllEntries = function(){
+  let data = [...dbData.entries].sort((a,b)=>b.id-a.id);
+  document.getElementById('allTable').innerHTML=tableHtml(data);
+}
+window.editEntry = function(id){
+  let e=dbData.entries.find(x=>x.id===id); if(!e) return;
+  editId=e.firebaseKey;
+  document.getElementById('e_vehical').value=e.vehical;
+  document.getElementById('e_site').value=e.site;
+  document.getElementById('e_date').value=e.date;
+  document.getElementById('e_ltr').value=e.ltr;
+  document.getElementById('e_open').value=e.open;
+  document.getElementById('e_close').value=e.close;
+  showTab('entry');
+  document.getElementById('saveBtn').classList.add('hidden');
+  document.getElementById('updateBtn').classList.remove('hidden');
+}
+window.updateEntry = function(){
+  if(!editId) return;
+  update(ref(db, 'mehadia_v2/entries/'+editId), {
+    vehical:document.getElementById('e_vehical').value,
+    site:document.getElementById('e_site').value,
+    date:document.getElementById('e_date').value,
+    ltr:document.getElementById('e_ltr').value,
+    open:document.getElementById('e_open').value,
+    close:document.getElementById('e_close').value
+  });
+  editId=null;
+  document.getElementById('saveBtn').classList.remove('hidden');
+  document.getElementById('updateBtn').classList.add('hidden');
+  alert("Updated Live!");
+}
+window.delEntry = function(firebaseKey){ if(!confirm("Delete?")) return; remove(ref(db, 'mehadia_v2/entries/'+firebaseKey)); }
+window.addVehical = function(){
+  let input = document.getElementById('vehical_no'); if(!input.value) return;
+  if(editVehicalIdx!==null){ dbData.vehical[editVehicalIdx]=input.value; editVehicalIdx=null; document.getElementById('vehicalBtn').innerText="Add"; }
+  else{ dbData.vehical.push(input.value); }
+  saveToFirebase('vehical', dbData.vehical); input.value='';
+}
+window.loadVehical = function(){ document.getElementById('vehicalList').innerHTML=dbData.vehical.map((g,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span class="font-bold">${g}</span><span><button onclick="editVehical(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delVehical(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
+window.editVehical = function(i){ document.getElementById('vehical_no').value=dbData.vehical[i]; editVehicalIdx=i; document.getElementById('vehicalBtn').innerText="Update"; }
+window.delVehical = function(i){ if(confirm("Delete?")){ dbData.vehical.splice(i,1); saveToFirebase('vehical', dbData.vehical); } }
+window.addSite = function(){
+  let input = document.getElementById('site_name'); if(!input.value) return;
+  if(editSiteIdx!==null){ dbData.site[editSiteIdx]=input.value; editSiteIdx=null; document.getElementById('siteBtn').innerText="Add"; }
+  else{ dbData.site.push(input.value); }
+  saveToFirebase('site', dbData.site); input.value='';
+}
+window.loadSite = function(){ document.getElementById('siteList').innerHTML=dbData.site.map((s,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span>${s}</span><span><button onclick="editSite(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delSite(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
+window.editSite = function(i){ document.getElementById('site_name').value=dbData.site[i]; editSiteIdx=i; document.getElementById('siteBtn').innerText="Update"; }
+window.delSite = function(i){ if(confirm("Delete?")){ dbData.site.splice(i,1); saveToFirebase('site', dbData.site); } }
+window.addUser = function(){
+  if(dbData.users.filter(x=>x.role==='user').length>=3 && editUserIdx===null) return alert("Max 3 users");
+  let un = document.getElementById('u_name').value, ps = document.getElementById('u_pass').value; if(!un) return;
+  if(editUserIdx!==null){ dbData.users[editUserIdx].username=un; dbData.users[editUserIdx].password=ps; editUserIdx=null; document.getElementById('userBtn').innerText="Create"; }
+  else{ dbData.users.push({username:un,password:ps,role:'user'}); }
+  saveToFirebase('users', dbData.users);
+  document.getElementById('u_name').value=''; document.getElementById('u_pass').value='';
+}
+window.loadUsers = function(){ document.getElementById('userList').innerHTML=dbData.users.map((u,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span><b>${u.username}</b> (${u.role})</span><span>${u.role!=='admin'?`<button onclick="editUser(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delUser(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button>`:''}</span></div>`).join(''); }
+window.editUser = function(i){ document.getElementById('u_name').value=dbData.users[i].username; document.getElementById('u_pass').value=dbData.users[i].password; editUserIdx=i; document.getElementById('userBtn').innerText="Update"; }
+window.delUser = function(i){ if(confirm("Delete?")){ dbData.users.splice(i,1); saveToFirebase('users', dbData.users); } }
+window.genReport = function(){
+  let from=document.getElementById('r_from').value,to=document.getElementById('r_to').value,data=dbData.entries;
+  if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to);
+  let total=data.reduce((s,e)=>s+parseFloat(e.ltr||0),0);
+  data.sort((a,b)=>b.id-a.id);
+  document.getElementById('reportTable').innerHTML=tableHtml(data);
+  document.getElementById('totalLtr').innerText="Total Diesel: "+total+" Ltr";
+}
+window.exportCSV = function(){
+  let csv="Date,User,Vehicle,Site,Ltr,Opening,Closing,Run\n"+dbData.entries.map(e=>`${e.date},${e.user},${e.vehical},${e.site},${e.ltr},${e.open},${e.close},${e.close-e.open}`).join("\n");
+  let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download="mehadia_report.csv";a.click();
+}
 </script>
 </body>
 </html>
