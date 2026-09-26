@@ -2,371 +2,121 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mehadia Infra - LIVE + STOCK</title>
+<title>Mehadia Infra - Premium</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>*{font-family:'Inter',sans-serif}</style>
 </head>
-<body class="bg-[#f6f7fb]">
-<div id="loginPage" class="min-h-screen flex items-center justify-center p-4 bg-[#f6f7fb]">
-  <div class="bg-white rounded-[24px] p-8 w-full max-w-[380px] shadow-[0_10px_40px_rgba(0,0,0,0.06)] border">
-    <div class="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white font-extrabold">M</div>
-    <h2 class="text-[22px] font-extrabold mt-5 leading-none">Mehadia Infrastructure</h2>
-    <p class="text-xs text-slate-500 mt-2">Diesel Management - <span class="text-green-600 font-bold">LIVE + STOCK</span></p>
-    <input id="username" placeholder="Username" class="w-full mt-7 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none">
-    <input id="password" type="password" placeholder="Password" class="w-full mt-3 px-5 py-3.5 rounded-xl bg-slate-50 border outline-none">
-    <button onclick="login()" class="w-full mt-5 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Login</button>
+<body class="bg-[#f8fafc]">
+<div id="loginPage" class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+  <div class="bg-white rounded-[28px] p-9 w-full max-w-[400px] shadow-[0_30px_80px_rgba(0,0,0,0.3)] border">
+    <div class="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">M</div>
+    <h2 class="text-[24px] font-black mt-6">MEHADIA INFRA</h2>
+    <p class="text-[11px] font-bold tracking-[0.2em] text-slate-400 mt-1">INFRASTRUCTURE</p>
+    <div class="flex items-center gap-2 mt-4"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span><span class="text-[11px] font-bold text-green-600">LIVE SYNC • STOCK SYSTEM</span></div>
+    <input id="username" placeholder="Username" class="w-full mt-8 px-5 py-4 rounded-2xl bg-slate-50 border outline-none">
+    <input id="password" type="password" placeholder="Password" class="w-full mt-3 px-5 py-4 rounded-2xl bg-slate-50 border outline-none">
+    <button onclick="login()" class="w-full mt-6 py-4 rounded-2xl bg-slate-900 text-white font-bold">Login to Dashboard →</button>
   </div>
 </div>
-<div id="appPage" class="hidden">
-  <div class="bg-white border-b sticky top-0 z-20 px-6 md:px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-3"><div class="w-9 h-9 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold">M</div><div><div class="font-extrabold text-[15px]">MEHADIA INFRA</div><div class="text-[10px] text-slate-500 tracking-widest -mt-1">INFRASTRUCTURE <span class="bg-green-100 text-green-700 px-2 rounded ml-1">STOCK LIVE</span></div></div></div>
-    <div class="flex items-center gap-2"><span id="roleShow" class="px-3 py-1.5 rounded-full bg-slate-100 text-[11px] font-bold"></span><button onclick="logout()" class="px-3 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-bold">Logout</button></div>
+<div id="appPage" class="hidden min-h-screen">
+  <div class="bg-white border-b sticky top-0 z-30">
+    <div class="px-6 md:px-8 py-4 flex justify-between items-center max-w-[1600px] mx-auto">
+      <div class="flex items-center gap-4"><div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black">M</div><div><div class="font-black text-[15px]">MEHADIA INFRA</div><div class="text-[10px] text-slate-500 font-bold">PREMIUM • STOCK LEDGER</div></div></div>
+      <div class="flex items-center gap-3"><div id="stockQuick" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-[11px] font-bold text-amber-800"></div><span id="roleShow" class="px-4 py-2 rounded-full bg-slate-900 text-white text-[11px] font-bold"></span><button onclick="logout()" class="px-4 py-2 rounded-full bg-white border text-[11px] font-bold">Logout</button></div>
+    </div>
   </div>
-  <div class="flex flex-col md:flex-row max-w-[1400px] mx-auto">
-    <div class="md:w-[250px] p-4"><div class="bg-white rounded-2xl border p-2">
-      <button onclick="showTab('entry')" class="w-full text-left px-4 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">⛽ Diesel Entry</button>
-      <button onclick="showTab('myentry')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm font-semibold mt-1">📋 My Entries</button>
-      <button onclick="showTab('stock')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm font-semibold mt-1 bg-amber-50 border border-amber-200">🛢️ Site Stock Maintain</button>
-      <div id="adminMenu" class="hidden"><div class="h-[1px] bg-slate-100 my-2"></div>
-        <button onclick="showTab('all')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📊 All Entries</button>
-        <button onclick="showTab('vehical')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">🚛 Vehicle</button>
-        <button onclick="showTab('site')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📍 Site</button>
-        <button onclick="showTab('user')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">👤 Users</button>
-        <button onclick="showTab('report')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-sm">📈 Report</button>
-      </div>
-    </div></div>
-    <div class="flex-1 p-4 md:p-6">
-      <div id="tab-entry" class="bg-white rounded-2xl border p-6 md:p-8 max-w-[650px]"><h3 class="font-bold text-[18px]">New Diesel Entry</h3>
-        <label class="text-[11px] font-bold text-slate-500 mt-6 block">VEHICLE SELECT</label>
-        <select id="e_vehical" onchange="onVehicleChange()" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></select>
-        <div id="lastInfo" class="hidden mt-3 px-4 py-2 rounded-xl bg-blue-50 text-blue-700 text-xs font-semibold"></div>
-        <div id="stockInfo" class="hidden mt-3 px-4 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold"></div>
-        <label class="text-[11px] font-bold text-slate-500 mt-4 block">SITE</label><select id="e_site" onchange="updateStockInfo()" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></select>
-        <div class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[11px] font-bold">DATE</label><input type="date" id="e_date" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></div><div><label class="text-[11px] font-bold" id="ltrLabel">DIESEL (LTR)</label><input type="number" id="e_ltr" placeholder="50" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></div></div>
-        <div id="kmBox" class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[11px] font-bold">OPENING (Auto)</label><input type="number" id="e_open" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-slate-50 border"></div><div><label class="text-[11px] font-bold">CLOSING</label><input type="number" id="e_close" class="w-full mt-2 px-5 py-3.5 rounded-xl border-2 border-slate-900 font-bold"></div></div>
-        <div id="pumpBox" class="hidden mt-4"><label class="text-[11px] font-bold">PUMP NAME (Manual)</label><input type="text" id="e_pump" placeholder="Ex: HP Pump Tukum" class="w-full mt-2 px-5 py-3.5 rounded-xl bg-amber-50 border border-amber-300"></div>
-        <button id="saveBtn" onclick="saveEntry()" class="w-full mt-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Save Entry - Live Sync</button><button id="updateBtn" onclick="updateEntry()" class="hidden w-full mt-6 py-3.5 rounded-xl bg-blue-600 text-white font-bold">Update Entry</button>
-      </div>
-      <div id="tab-stock" class="hidden bg-white rounded-2xl border p-6">
-        <h3 class="font-bold text-[18px]">🛢️ Site Stock Maintain - Ledger</h3>
-        <p class="text-xs text-slate-500 mt-1">Har site ka alag stock, Date wise IN/OUT</p>
-        <div class="flex gap-2 mt-4 flex-wrap items-end bg-slate-50 p-4 rounded-xl border">
-          <div><label class="text-[11px] font-bold">SITE</label><select id="stock_site" onchange="renderStock()" class="mt-1 px-4 py-2.5 rounded-xl bg-white border text-sm"></select></div>
-          <div><label class="text-[11px] font-bold">FROM</label><input type="date" id="stock_from" class="mt-1 px-4 py-2.5 rounded-xl bg-white border text-sm"></div>
-          <div><label class="text-[11px] font-bold">TO</label><input type="date" id="stock_to" class="mt-1 px-4 py-2.5 rounded-xl bg-white border text-sm"></div>
-          <button onclick="renderStock()" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold">Show</button>
+  <div class="flex flex-col md:flex-row max-w-[1600px] mx-auto">
+    <div class="md:w-[270px] p-4">
+      <div class="bg-white rounded-[20px] border shadow-sm p-3 sticky top-[88px]">
+        <p class="text-[10px] font-black tracking-[0.2em] text-slate-400 px-3 py-2">MAIN MENU</p>
+        <button id="btn-entry" onclick="showTab('entry')" class="w-full text-left px-4 py-3.5 rounded-xl bg-slate-900 text-white font-bold text-[13px] flex items-center gap-3"><span>⛽</span> Diesel Entry</button>
+        <button id="btn-myentry" onclick="showTab('myentry')" class="w-full text-left px-4 py-3.5 rounded-xl hover:bg-slate-50 text-[13px] font-semibold mt-1 flex items-center gap-3 border border-transparent"><span>📋</span> My Entries</button>
+        <button id="btn-stock" onclick="showTab('stock')" class="w-full text-left px-4 py-3.5 rounded-xl hover:bg-slate-50 text-[13px] font-bold mt-1 flex items-center gap-3 border border-transparent"><span>🛢️</span> Stock Ledger <span class="ml-auto text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">NEW</span></button>
+        <div id="adminMenu" class="hidden"><div class="h-[1px] bg-slate-100 my-3"></div><p class="text-[10px] font-black tracking-[0.2em] text-slate-400 px-3 mb-2">ADMIN</p>
+          <button id="btn-all" onclick="showTab('all')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>📊</span> All Entries</button>
+          <button id="btn-vehical" onclick="showTab('vehical')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>🚛</span> Vehicles</button>
+          <button id="btn-site" onclick="showTab('site')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>📍</span> Sites</button>
+          <button id="btn-user" onclick="showTab('user')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>👤</span> Users</button>
+          <button id="btn-report" onclick="showTab('report')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>📈</span> Reports</button>
         </div>
-        <div id="stockSummary" class="grid grid-cols-3 gap-3 mt-5"></div>
-        <div id="stockTable" class="mt-6 overflow-auto"></div>
       </div>
-      <div id="tab-myentry" class="hidden bg-white rounded-2xl border p-6"><h3 class="font-bold">My Entries</h3><div class="flex gap-2 mt-4 flex-wrap"><input type="date" id="my_from" class="px-4 py-2.5 rounded-xl bg-slate-50 border text-sm"><input type="date" id="my_to" class="px-4 py-2.5 rounded-xl bg-slate-50 border text-sm"><button onclick="filterMy()" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold">Filter</button></div><div id="myTable" class="mt-6 overflow-auto"></div></div>
-      <div id="tab-all" class="hidden bg-white rounded-2xl border p-6"><h3 class="font-bold">All Users Entries (Admin)</h3><div id="allTable" class="mt-4 overflow-auto"></div></div>
-      <div id="tab-vehical" class="hidden bg-white rounded-2xl border p-6 max-w-xl"><h3 class="font-bold">Vehicle List</h3><div class="flex gap-2 mt-4"><input id="vehical_no" placeholder="Vehicle No" class="flex-1 px-5 py-3 rounded-xl bg-slate-50 border"><button onclick="addVehical()" id="vehicalBtn" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">Add</button></div><div id="vehicalList" class="mt-5"></div></div>
-      <div id="tab-site" class="hidden bg-white rounded-2xl border p-6 max-w-xl"><h3 class="font-bold">Site List</h3><div class="flex gap-2 mt-4"><input id="site_name" placeholder="Site Name" class="flex-1 px-5 py-3 rounded-xl bg-slate-50 border"><button onclick="addSite()" id="siteBtn" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">Add</button></div><div id="siteList" class="mt-5"></div></div>
-      <div id="tab-user" class="hidden bg-white rounded-2xl border p-6 max-w-xl"><h3 class="font-bold">Users</h3><input id="u_name" placeholder="Username" class="w-full mt-4 px-5 py-3 rounded-xl bg-slate-50 border"><input id="u_pass" placeholder="Password" class="w-full mt-3 px-5 py-3 rounded-xl bg-slate-50 border"><button onclick="addUser()" id="userBtn" class="w-full mt-3 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">Create User</button><div id="userList" class="mt-5"></div></div>
-      <div id="tab-report" class="hidden bg-white rounded-2xl border p-6"><h3 class="font-bold">Report</h3><div class="flex gap-2 mt-4 flex-wrap"><input type="date" id="r_from" class="px-4 py-2.5 rounded-xl bg-slate-50 border text-sm"><input type="date" id="r_to" class="px-4 py-2.5 rounded-xl bg-slate-50 border text-sm"><button onclick="genReport()" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-bold">Generate</button><button onclick="exportCSV()" class="px-5 py-2.5 rounded-xl bg-white border text-sm font-bold">Excel</button></div><div id="reportTable" class="mt-6 overflow-auto"></div><div id="totalLtr" class="mt-4 font-bold"></div></div>
+    </div>
+    <div class="flex-1 p-4 md:p-6">
+      <div id="tab-entry" class="max-w-[680px]"><div class="bg-white rounded-[24px] border shadow-sm p-7 md:p-8"><h3 class="font-black text-[20px]">New Diesel Entry</h3><p class="text-[12px] text-slate-500 mt-1">Select vehicle and stock auto updates</p><label class="text-[10px] font-black text-slate-400 mt-7 block">VEHICLE SELECT</label><select id="e_vehical" onchange="onVehicleChange()" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-semibold"></select><div id="lastInfo" class="hidden mt-3 px-4 py-3 rounded-xl bg-blue-50 border text-blue-700 text-[12px] font-semibold"></div><div id="stockInfo" class="hidden mt-3 px-4 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-bold"></div><label class="text-[10px] font-black text-slate-400 mt-5 block">SITE LOCATION</label><select id="e_site" onchange="updateStockInfo()" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-semibold"></select><div class="grid grid-cols-2 gap-3 mt-5"><div><label class="text-[10px] font-black text-slate-400 block">DATE</label><input type="date" id="e_date" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-semibold"></div><div><label class="text-[10px] font-black text-slate-400 block" id="ltrLabel">DIESEL QTY</label><input type="number" id="e_ltr" placeholder="50" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-bold"></div></div><div id="kmBox" class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[10px] font-black text-slate-400 block">OPENING KM</label><input type="number" id="e_open" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-100 border"></div><div><label class="text-[10px] font-black text-slate-900 block">CLOSING KM</label><input type="number" id="e_close" class="w-full mt-2 px-5 py-4 rounded-2xl bg-white border-2 border-slate-900 font-black"></div></div><div id="pumpBox" class="hidden mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200"><label class="text-[10px] font-black text-amber-800 block">PUMP NAME</label><input type="text" id="e_pump" placeholder="HP Pump Tukum" class="w-full mt-2 px-5 py-4 rounded-xl bg-white border border-amber-200 font-semibold"></div><button id="saveBtn" onclick="saveEntry()" class="w-full mt-7 py-4 rounded-2xl bg-slate-900 text-white font-black">Save Entry — Live Sync ⚡</button><button id="updateBtn" onclick="updateEntry()" class="hidden w-full mt-7 py-4 rounded-2xl bg-blue-600 text-white font-black">Update Entry</button></div></div>
+      <div id="tab-stock" class="hidden"><div class="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-[24px] p-7 text-white"><h3 class="font-black text-[22px]">Site Stock Ledger</h3><p class="text-[12px] opacity-90 mt-1">Har site ka alag hisab</p><div class="mt-6 flex gap-2 flex-wrap items-end bg-white/10 rounded-2xl p-4 border border-white/10"><div><label class="text-[10px] font-bold opacity-80">SITE</label><select id="stock_site" onchange="renderStock()" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-slate-900 text-[13px] font-bold"></select></div><div><label class="text-[10px] font-bold opacity-80">FROM</label><input type="date" id="stock_from" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-[13px] font-bold"></div><div><label class="text-[10px] font-bold opacity-80">TO</label><input type="date" id="stock_to" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-[13px] font-bold"></div><button onclick="renderStock()" class="px-6 py-2.5 rounded-xl bg-slate-900 text-white text-[13px] font-black">Show</button></div></div><div id="stockSummary" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6"></div><div class="bg-white rounded-[20px] border shadow-sm mt-6 overflow-hidden"><div id="stockTable" class="overflow-auto"></div></div></div>
+      <div id="tab-myentry" class="hidden bg-white rounded-[20px] border p-6"><h3 class="font-black">My Entries</h3><div class="flex gap-2 mt-4 flex-wrap"><input type="date" id="my_from" class="px-4 py-3 rounded-xl bg-slate-50 border"><input type="date" id="my_to" class="px-4 py-3 rounded-xl bg-slate-50 border"><button onclick="filterMy()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold">Filter</button></div><div id="myTable" class="mt-6 overflow-auto"></div></div>
+      <div id="tab-all" class="hidden bg-white rounded-[20px] border p-6"><h3 class="font-black">All Entries</h3><div id="allTable" class="mt-4 overflow-auto"></div></div>
+      <div id="tab-vehical" class="hidden bg-white rounded-[20px] border p-6 max-w-xl"><h3 class="font-black">Vehicle Fleet</h3><div class="flex gap-2 mt-4"><input id="vehical_no" placeholder="Add Vehicle" class="flex-1 px-5 py-3.5 rounded-xl bg-slate-50 border"><button onclick="addVehical()" id="vehicalBtn" class="px-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Add</button></div><div id="vehicalList" class="mt-5"></div></div>
+      <div id="tab-site" class="hidden bg-white rounded-[20px] border p-6 max-w-xl"><h3 class="font-black">Project Sites</h3><div class="flex gap-2 mt-4"><input id="site_name" placeholder="Site Name" class="flex-1 px-5 py-3.5 rounded-xl bg-slate-50 border"><button onclick="addSite()" id="siteBtn" class="px-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Add</button></div><div id="siteList" class="mt-5"></div></div>
+      <div id="tab-user" class="hidden bg-white rounded-[20px] border p-6 max-w-xl"><h3 class="font-black">Team Users</h3><input id="u_name" placeholder="Username" class="w-full mt-4 px-5 py-3.5 rounded-xl bg-slate-50 border"><input id="u_pass" placeholder="Password" class="w-full mt-3 px-5 py-3.5 rounded-xl bg-slate-50 border"><button onclick="addUser()" id="userBtn" class="w-full mt-3 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Create User</button><div id="userList" class="mt-5"></div></div>
+      <div id="tab-report" class="hidden bg-white rounded-[20px] border p-6"><h3 class="font-black">Reports</h3><div class="flex gap-2 mt-4 flex-wrap"><input type="date" id="r_from" class="px-4 py-3 rounded-xl bg-slate-50 border"><input type="date" id="r_to" class="px-4 py-3 rounded-xl bg-slate-50 border"><button onclick="genReport()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold">Generate</button><button onclick="exportCSV()" class="px-6 py-3 rounded-xl bg-white border font-bold">Excel</button></div><div id="reportTable" class="mt-6 overflow-auto"></div><div id="totalLtr" class="mt-4 font-black"></div></div>
     </div>
   </div>
 </div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, push, set, onValue, remove, update, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-const firebaseConfig = {
-  apiKey: "AIzaSyAEbSF9JNzP80PmYQ0GVBDShyEVco3F0",
-  authDomain: "mehadia-infrastructure.firebaseapp.com",
-  databaseURL: "https://mehadia-infrastructure-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "mehadia-infrastructure",
-  storageBucket: "mehadia-infrastructure.firebasestorage.app",
-  messagingSenderId: "213393301505",
-  appId: "1:213393301505:web:75e929a983d377d7e32000"
-};
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-let dbData = {users:[], vehical:[], site:[], entries:[], stockEntries:[]};
-let currentUser=null, editId=null, editVehicalIdx=null, editSiteIdx=null, editUserIdx=null;
-const STOCK_KEYWORD = "STOCK";
-const defaultData = {
-  users: [
-    {username:'admin',password:'admin123',role:'admin'},
-    {username:'user1',password:'user123',role:'user'},
-    {username:'user2',password:'user123',role:'user'},
-    {username:'user3',password:'user123',role:'user'}
-  ],
-  vehical: ['STOCK DIESEL','MH-34 AB 1234','MH-34 CD 5678'],
-  site: ['Tukum Site','Chandrapur Bypass']
-};
-async function initData(){
-  const snap = await get(ref(db, 'mehadia_v2'));
-  if(!snap.exists()){
-    await set(ref(db, 'mehadia_v2'), {...defaultData, entries: {}, stockEntries:{}});
-  } else {
-    const vSnap = await get(ref(db, 'mehadia_v2/vehical'));
-    let v = vSnap.val();
-    let arr = v? (Array.isArray(v)? v : Object.values(v)) : [];
-    if(!arr.some(x=>x.toUpperCase().includes(STOCK_KEYWORD))){
-      arr.unshift('STOCK DIESEL');
-      await set(ref(db, 'mehadia_v2/vehical'), arr);
-    }
-  }
-}
-initData();
-onValue(ref(db, 'mehadia_v2/users'), (s)=>{
-  const val = s.val();
-  if(val){ dbData.users = Array.isArray(val)? val : Object.values(val); }
-  else { dbData.users = defaultData.users; }
-  if(currentUser) loadUsers();
-});
-onValue(ref(db, 'mehadia_v2/vehical'), (s)=>{
-  const val = s.val();
-  dbData.vehical = val? (Array.isArray(val)? val : Object.values(val)) : defaultData.vehical;
-  loadAllSelects(); loadVehical();
-});
-onValue(ref(db, 'mehadia_v2/site'), (s)=>{
-  const val = s.val();
-  dbData.site = val? (Array.isArray(val)? val : Object.values(val)) : defaultData.site;
-  loadAllSelects(); loadSite();
-});
-onValue(ref(db, 'mehadia_v2/entries'), (s)=>{
-  const val = s.val();
-  if(val){ dbData.entries = Object.entries(val).map(([key, v])=>({firebaseKey:key,...v})); }
-  else { dbData.entries = []; }
-  if(currentUser){ filterMy(); loadAllEntries(); genReport(); autoFillOpening(); renderStock(); }
-});
-onValue(ref(db, 'mehadia_v2/stockEntries'), (s)=>{
-  const val = s.val();
-  if(val){ dbData.stockEntries = Object.entries(val).map(([key, v])=>({firebaseKey:key,...v})); }
-  else { dbData.stockEntries = []; }
-  if(currentUser){ renderStock(); updateStockInfo(); }
-});
-function saveToFirebase(path, array){ set(ref(db, 'mehadia_v2/'+path), array); }
-window.login = function(){
-  let u=document.getElementById('username').value, p=document.getElementById('password').value;
-  let f=dbData.users.find(x=>x.username===u && x.password===p);
-  if(!f){ alert("Wrong Username / Password"); return; }
-  currentUser=f;
-  document.getElementById('loginPage').style.display='none';
-  document.getElementById('appPage').classList.remove('hidden');
-  document.getElementById('roleShow').innerText=f.username+" • "+f.role.toUpperCase();
-  if(f.role==='admin') document.getElementById('adminMenu').classList.remove('hidden');
-  document.getElementById('e_date').valueAsDate = new Date();
-  loadAllSelects(); window.showTab('entry');
-}
-window.logout = function(){ location.reload(); }
-window.showTab = function(t){
+const firebaseConfig = { apiKey: "AIzaSyAEbSF9JNzP80PmYQ0GVBDShyEVco3F0", authDomain: "mehadia-infrastructure.firebaseapp.com", databaseURL: "https://mehadia-infrastructure-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "mehadia-infrastructure", storageBucket: "mehadia-infrastructure.firebasestorage.app", messagingSenderId: "213393301505", appId: "1:213393301505:web:75e929a983d377d7e32000" };
+const app = initializeApp(firebaseConfig); const db = getDatabase(app);
+let dbData = {users:[], vehical:[], site:[], entries:[], stockEntries:[]}; let currentUser=null, editId=null, editVehicalIdx=null, editSiteIdx=null, editUserIdx=null; const STOCK_KEYWORD = "STOCK";
+const defaultData = { users: [{username:'admin',password:'admin123',role:'admin'},{username:'user1',password:'user123',role:'user'},{username:'user2',password:'user123',role:'user'},{username:'user3',password:'user123',role:'user'}], vehical: ['STOCK DIESEL','MH-34 AB 1234'], site: ['Tukum Site','Chandrapur Bypass'] };
+async function initData(){ const snap = await get(ref(db, 'mehadia_v2')); if(!snap.exists()){ await set(ref(db, 'mehadia_v2'), {...defaultData, entries: {}, stockEntries:{}}); } else { const vSnap = await get(ref(db, 'mehadia_v2/vehical')); let v = vSnap.val(); let arr = v? (Array.isArray(v)? v : Object.values(v)) : []; if(!arr.some(x=>x.toUpperCase().includes(STOCK_KEYWORD))){ arr.unshift('STOCK DIESEL'); await set(ref(db, 'mehadia_v2/vehical'), arr); } } } initData();
+onValue(ref(db, 'mehadia_v2/users'), (s)=>{ const val=s.val(); dbData.users=val? (Array.isArray(val)? val : Object.values(val)) : defaultData.users; if(currentUser) loadUsers(); });
+onValue(ref(db, 'mehadia_v2/vehical'), (s)=>{ const val=s.val(); dbData.vehical=val? (Array.isArray(val)? val : Object.values(val)) : defaultData.vehical; loadAllSelects(); loadVehical(); });
+onValue(ref(db, 'mehadia_v2/site'), (s)=>{ const val=s.val(); dbData.site=val? (Array.isArray(val)? val : Object.values(val)) : defaultData.site; loadAllSelects(); loadSite(); });
+onValue(ref(db, 'mehadia_v2/entries'), (s)=>{ const val=s.val(); dbData.entries=val? Object.entries(val).map(([k,v])=>({firebaseKey:k,...v})) : []; if(currentUser){ filterMy(); loadAllEntries(); genReport(); autoFillOpening(); renderStock(); } });
+onValue(ref(db, 'mehadia_v2/stockEntries'), (s)=>{ const val=s.val(); dbData.stockEntries=val? Object.entries(val).map(([k,v])=>({firebaseKey:k,...v})) : []; if(currentUser){ renderStock(); updateStockInfo(); updateQuickStock(); } });
+function saveToFirebase(path,array){ set(ref(db, 'mehadia_v2/'+path), array); }
+window.login=function(){ let u=document.getElementById('username').value,p=document.getElementById('password').value; let f=dbData.users.find(x=>x.username===u && x.password===p); if(!f){ alert("Wrong Username / Password"); return; } currentUser=f; document.getElementById('loginPage').style.display='none'; document.getElementById('appPage').classList.remove('hidden'); document.getElementById('roleShow').innerText=f.username+" • "+f.role.toUpperCase(); if(f.role==='admin') document.getElementById('adminMenu').classList.remove('hidden'); document.getElementById('e_date').valueAsDate=new Date(); loadAllSelects(); window.showTab('entry'); }
+window.logout=function(){ location.reload(); }
+window.showTab=function(t){
   document.querySelectorAll('[id^="tab-"]').forEach(d=>d.classList.add('hidden'));
   document.getElementById('tab-'+t).classList.remove('hidden');
-  if(t==='myentry') filterMy(); if(t==='all') loadAllEntries();
-  if(t==='vehical') loadVehical(); if(t==='site') loadSite(); if(t==='user') loadUsers();
-  if(t==='stock') renderStock();
-}
-function loadAllSelects(){
-  const ev = document.getElementById('e_vehical');
-  const es = document.getElementById('e_site');
-  const ss = document.getElementById('stock_site');
-  if(ev) ev.innerHTML = dbData.vehical.map(g=>`<option>${g}</option>`).join('');
-  if(es) es.innerHTML = dbData.site.map(s=>`<option>${s}</option>`).join('');
-  if(ss) ss.innerHTML = `<option value="">All Sites</option>` + dbData.site.map(s=>`<option>${s}</option>`).join('');
-  onVehicleChange();
-  updateStockInfo();
-}
-window.loadAll = loadAllSelects;
-window.onVehicleChange = function(){
-  let veh = document.getElementById('e_vehical')?.value || '';
-  let isStock = veh.toUpperCase().includes(STOCK_KEYWORD);
-  const kmBox = document.getElementById('kmBox');
-  const pumpBox = document.getElementById('pumpBox');
-  const ltrLabel = document.getElementById('ltrLabel');
-  const saveBtn = document.getElementById('saveBtn');
-  const lastInfo = document.getElementById('lastInfo');
-  if(isStock){
-    if(kmBox) kmBox.classList.add('hidden');
-    if(pumpBox) pumpBox.classList.remove('hidden');
-    if(ltrLabel) ltrLabel.innerText = "STOCK QTY (LTR) - IN";
-    if(saveBtn) { saveBtn.innerText = "Add To Stock ➕"; saveBtn.className = "w-full mt-6 py-3.5 rounded-xl bg-amber-600 text-white font-bold"; }
-    if(lastInfo) lastInfo.classList.add('hidden');
-  } else {
-    if(kmBox) kmBox.classList.remove('hidden');
-    if(pumpBox) pumpBox.classList.add('hidden');
-    if(ltrLabel) ltrLabel.innerText = "DIESEL (LTR)";
-    if(saveBtn) { saveBtn.innerText = "Save Entry - Live Sync"; saveBtn.className = "w-full mt-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold"; }
-    autoFillOpening();
-  }
-  updateStockInfo();
-}
-window.updateStockInfo = function(){
-  let site = document.getElementById('e_site')?.value;
-  if(!site) return;
-  let stockData = dbData.stockEntries.filter(s=>s.site===site);
-  let totalIn = stockData.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
-  let totalOut = stockData.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
-  let bal = totalIn - totalOut;
-  const box = document.getElementById('stockInfo');
-  if(box){
-    box.classList.remove('hidden');
-    box.innerHTML = `📍 ${site} ka Stock: ${totalIn} IN - ${totalOut} OUT = <b>${bal} LTR Bacha</b>`;
-  }
-}
-window.autoFillOpening = function(){
-  let veh = document.getElementById('e_vehical')?.value; if(!veh) return;
-  if(veh.toUpperCase().includes(STOCK_KEYWORD)) return;
-  let last = dbData.entries.filter(e=>e.vehical===veh).sort((a,b)=>b.id-a.id)[0];
-  const lastInfo = document.getElementById('lastInfo');
-  if(last && last.close){
-    document.getElementById('e_open').value = last.close;
-    lastInfo.classList.remove('hidden');
-    lastInfo.innerText = `Last Closing of ${veh} was ${last.close} KM on ${last.date} - Auto filled`;
-  } else { document.getElementById('e_open').value = ''; if(lastInfo) lastInfo.classList.add('hidden'); }
-}
-window.saveEntry = function(){
-  let vehicalVal = document.getElementById('e_vehical').value;
-  let siteVal = document.getElementById('e_site').value;
-  let dateVal = document.getElementById('e_date').value;
-  let ltrVal = document.getElementById('e_ltr').value;
-  let isStock = vehicalVal.toUpperCase().includes(STOCK_KEYWORD);
-  if(!siteVal ||!dateVal ||!ltrVal) return alert("Site, Date, Ltr bharo");
-  if(isStock){
-    let pumpVal = document.getElementById('e_pump').value;
-    if(!pumpVal) return alert("Pump Name dalo");
-    let stockObj = { id:Date.now(), site:siteVal, date:dateVal, qty:ltrVal, pumpName:pumpVal, type:'IN', user:currentUser.username, vehical:vehicalVal };
-    push(ref(db, 'mehadia_v2/stockEntries'), stockObj);
-    document.getElementById('e_ltr').value=''; document.getElementById('e_pump').value='';
-    alert("Stock me "+ltrVal+" Ltr ADD ho gaya - "+siteVal);
-  } else {
-    let openVal = document.getElementById('e_open').value;
-    let closeVal = document.getElementById('e_close').value;
-    if(!closeVal) return alert("Closing bharo");
-    let e={ id:Date.now(), user:currentUser.username, vehical:vehicalVal, site:siteVal, date:dateVal, ltr:ltrVal, open:openVal, close:closeVal };
-    push(ref(db, 'mehadia_v2/entries'), e);
-    let stockOut = { id:Date.now()+1, site:siteVal, date:dateVal, qty:ltrVal, pumpName:vehicalVal, type:'OUT', user:currentUser.username, vehical:vehicalVal };
-    push(ref(db, 'mehadia_v2/stockEntries'), stockOut);
-    document.getElementById('e_ltr').value=''; document.getElementById('e_close').value='';
-  }
-}
-function tableHtml(data){
-  if(!data.length) return `<p class="text-center text-slate-400 py-6">No entries found</p>`;
-  return `<table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500"><th class="p-3 text-left">Date</th><th class="p-3 text-left">User</th><th class="p-3 text-left">Vehicle</th><th class="p-3 text-left">Site</th><th class="p-3">Ltr</th><th class="p-3">Opening</th><th class="p-3">Closing</th><th class="p-3">Run</th><th class="p-3">Action</th></tr>${data.map(e=>{
-    let run=(e.close&&e.open)?(e.close-e.open):'-';
-    return `<tr class="border-t"><td class="p-3">${e.date}</td><td class="p-3 font-semibold">${e.user}</td><td class="p-3 font-bold">${e.vehical}</td><td class="p-3">${e.site}</td><td class="p-3 font-bold">${e.ltr}</td><td class="p-3">${e.open||'-'}</td><td class="p-3 font-bold">${e.close||'-'}</td><td class="p-3">${run}</td><td class="p-3 flex gap-1"><button onclick="editEntry(${e.id})" class="px-2.5 py-1 bg-slate-100 rounded-full text-[11px] font-bold">Edit</button><button onclick="delEntry('${e.firebaseKey}')" class="px-2.5 py-1 bg-red-50 text-red-600 rounded-full text-[11px] font-bold">Del</button></td></tr>`
-  }).join('')}</table>`
-}
-window.filterMy = function(){
-  let from=document.getElementById('my_from').value, to=document.getElementById('my_to').value;
-  let data=dbData.entries.filter(e=>e.user===currentUser.username);
-  if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to);
-  data.sort((a,b)=>b.id-a.id);
-  document.getElementById('myTable').innerHTML=tableHtml(data);
-}
-window.loadAllEntries = function(){
-  let data = [...dbData.entries].sort((a,b)=>b.id-a.id);
-  document.getElementById('allTable').innerHTML=tableHtml(data);
-}
-window.editEntry = function(id){
-  let e=dbData.entries.find(x=>x.id===id); if(!e) return;
-  editId=e.firebaseKey;
-  document.getElementById('e_vehical').value=e.vehical;
-  onVehicleChange();
-  document.getElementById('e_site').value=e.site;
-  document.getElementById('e_date').value=e.date;
-  document.getElementById('e_ltr').value=e.ltr;
-  document.getElementById('e_open').value=e.open;
-  document.getElementById('e_close').value=e.close;
-  showTab('entry');
-  document.getElementById('saveBtn').classList.add('hidden');
-  document.getElementById('updateBtn').classList.remove('hidden');
-}
-window.updateEntry = function(){
-  if(!editId) return;
-  let veh = document.getElementById('e_vehical').value;
-  if(veh.toUpperCase().includes(STOCK_KEYWORD)) return alert("Stock entry ko Stock Maintain tab se edit/delete karo");
-  update(ref(db, 'mehadia_v2/entries/'+editId), {
-    vehical:veh,
-    site:document.getElementById('e_site').value,
-    date:document.getElementById('e_date').value,
-    ltr:document.getElementById('e_ltr').value,
-    open:document.getElementById('e_open').value,
-    close:document.getElementById('e_close').value
+  document.querySelectorAll('[id^="btn-"]').forEach(b=>{
+    b.classList.remove('bg-slate-900','text-white','bg-gradient-to-r','from-amber-500','to-orange-500');
+    b.classList.add('hover:bg-slate-50','border-transparent');
   });
-  editId=null;
-  document.getElementById('saveBtn').classList.remove('hidden');
-  document.getElementById('updateBtn').classList.add('hidden');
-  alert("Updated Live!");
-}
-window.delEntry = function(firebaseKey){ if(!confirm("Delete?")) return; remove(ref(db, 'mehadia_v2/entries/'+firebaseKey)); }
-window.renderStock = function(){
-  let siteFilter = document.getElementById('stock_site')?.value;
-  let from = document.getElementById('stock_from')?.value;
-  let to = document.getElementById('stock_to')?.value;
-  let data = [...dbData.stockEntries];
-  if(siteFilter) data = data.filter(s=>s.site===siteFilter);
-  if(from) data = data.filter(s=>s.date>=from);
-  if(to) data = data.filter(s=>s.date<=to);
-  data.sort((a,b)=>a.date.localeCompare(b.date) || a.id-b.id);
-  let sitesToShow = siteFilter? [siteFilter] : dbData.site;
-  let summaryHtml = sitesToShow.map(site=>{
-    let sd = dbData.stockEntries.filter(s=>s.site===site);
-    let totalIn = sd.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
-    let totalOut = sd.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
-    let bal = totalIn - totalOut;
-    return `<div class="p-4 rounded-xl border bg-white"><div class="text-[11px] text-slate-500 font-bold">${site}</div><div class="mt-2 flex gap-2 text-[12px]"><span class="px-2 py-1 bg-green-50 text-green-700 rounded-full font-bold">IN ${totalIn}</span><span class="px-2 py-1 bg-red-50 text-red-700 rounded-full font-bold">OUT ${totalOut}</span></div><div class="mt-2 text-[16px] font-extrabold">${bal} LTR <span class="text-[11px] font-semibold text-slate-500">CLOSING</span></div></div>`;
-  }).join('');
-  document.getElementById('stockSummary').innerHTML = summaryHtml || '<p class="text-xs text-slate-400">No stock data</p>';
-  if(!data.length){
-    document.getElementById('stockTable').innerHTML = `<p class="text-center text-slate-400 py-6">Koi stock entry nahi</p>`;
-    return;
+  const activeBtn=document.getElementById('btn-'+t);
+  if(activeBtn){
+    if(t==='stock'){
+      activeBtn.classList.add('bg-gradient-to-r','from-amber-500','to-orange-500','text-white');
+      activeBtn.classList.remove('hover:bg-slate-50');
+    } else {
+      activeBtn.classList.add('bg-slate-900','text-white');
+      activeBtn.classList.remove('hover:bg-slate-50');
+    }
   }
-  let running = {};
-  let ledgerRows = data.map(entry=>{
-    if(!running[entry.site]) running[entry.site]=0;
-    if(entry.type==='IN') running[entry.site]+=parseFloat(entry.qty||0);
-    else running[entry.site]-=parseFloat(entry.qty||0);
-    let isIn = entry.type==='IN';
-    return `<tr class="border-t ${isIn?'bg-green-50/30':''}"><td class="p-3">${entry.date}</td><td class="p-3 font-bold">${entry.site}</td><td class="p-3"><span class="px-2 py-1 rounded-full text-[11px] font-bold ${isIn?'bg-green-100 text-green-700':'bg-red-100 text-red-700'}">${entry.type}</span></td><td class="p-3">${isIn?entry.pumpName:entry.vehical}</td><td class="p-3 font-bold ${isIn?'text-green-700':''}">${isIn?'+': '-'} ${entry.qty}</td><td class="p-3 font-extrabold">${running[entry.site]} L</td><td class="p-3 text-[11px]">${entry.user}</td><td class="p-3"><button onclick="delStock('${entry.firebaseKey}')" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></td></tr>`;
-  }).join('');
-  document.getElementById('stockTable').innerHTML = `<div class="overflow-auto"><table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500"><th class="p-3 text-left">Date</th><th class="p-3 text-left">Site</th><th class="p-3 text-left">Type</th><th class="p-3 text-left">Pump / Vehicle</th><th class="p-3 text-left">Qty</th><th class="p-3 text-left">Closing</th><th class="p-3 text-left">User</th><th class="p-3">Action</th></tr>${ledgerRows}</table></div>`;
+  if(t==='myentry') filterMy(); if(t==='all') loadAllEntries(); if(t==='vehical') loadVehical(); if(t==='site') loadSite(); if(t==='user') loadUsers(); if(t==='stock') renderStock();
 }
-window.delStock = function(key){ if(!confirm("Stock entry delete kare?")) return; remove(ref(db, 'mehadia_v2/stockEntries/'+key)); }
-window.addVehical = function(){
-  let input = document.getElementById('vehical_no'); if(!input.value) return;
-  if(editVehicalIdx!==null){ dbData.vehical[editVehicalIdx]=input.value; editVehicalIdx=null; document.getElementById('vehicalBtn').innerText="Add"; }
-  else{ dbData.vehical.push(input.value); }
-  saveToFirebase('vehical', dbData.vehical); input.value='';
-}
-window.loadVehical = function(){ document.getElementById('vehicalList').innerHTML=dbData.vehical.map((g,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span class="font-bold">${g}</span><span><button onclick="editVehical(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delVehical(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
-window.editVehical = function(i){ document.getElementById('vehical_no').value=dbData.vehical[i]; editVehicalIdx=i; document.getElementById('vehicalBtn').innerText="Update"; }
-window.delVehical = function(i){ if(confirm("Delete?")){ dbData.vehical.splice(i,1); saveToFirebase('vehical', dbData.vehical); } }
-window.addSite = function(){
-  let input = document.getElementById('site_name'); if(!input.value) return;
-  if(editSiteIdx!==null){ dbData.site[editSiteIdx]=input.value; editSiteIdx=null; document.getElementById('siteBtn').innerText="Add"; }
-  else{ dbData.site.push(input.value); }
-  saveToFirebase('site', dbData.site); input.value='';
-}
-window.loadSite = function(){ document.getElementById('siteList').innerHTML=dbData.site.map((s,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span>${s}</span><span><button onclick="editSite(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delSite(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
-window.editSite = function(i){ document.getElementById('site_name').value=dbData.site[i]; editSiteIdx=i; document.getElementById('siteBtn').innerText="Update"; }
-window.delSite = function(i){ if(confirm("Delete?")){ dbData.site.splice(i,1); saveToFirebase('site', dbData.site); } }
-window.addUser = function(){
-  if(dbData.users.filter(x=>x.role==='user').length>=3 && editUserIdx===null) return alert("Max 3 users");
-  let un = document.getElementById('u_name').value, ps = document.getElementById('u_pass').value; if(!un) return;
-  if(editUserIdx!==null){ dbData.users[editUserIdx].username=un; dbData.users[editUserIdx].password=ps; editUserIdx=null; document.getElementById('userBtn').innerText="Create"; }
-  else{ dbData.users.push({username:un,password:ps,role:'user'}); }
-  saveToFirebase('users', dbData.users);
-  document.getElementById('u_name').value=''; document.getElementById('u_pass').value='';
-}
-window.loadUsers = function(){ document.getElementById('userList').innerHTML=dbData.users.map((u,i)=>`<div class="p-3.5 bg-slate-50 rounded-xl flex justify-between mt-2 text-sm"><span><b>${u.username}</b> (${u.role})</span><span>${u.role!=='admin'?`<button onclick="editUser(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delUser(${i})" class="px-2.5 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button>`:''}</span></div>`).join(''); }
-window.editUser = function(i){ document.getElementById('u_name').value=dbData.users[i].username; document.getElementById('u_pass').value=dbData.users[i].password; editUserIdx=i; document.getElementById('userBtn').innerText="Update"; }
-window.delUser = function(i){ if(confirm("Delete?")){ dbData.users.splice(i,1); saveToFirebase('users', dbData.users); } }
-window.genReport = function(){
-  let from=document.getElementById('r_from').value,to=document.getElementById('r_to').value,data=dbData.entries;
-  if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to);
-  let total=data.reduce((s,e)=>s+parseFloat(e.ltr||0),0);
-  data.sort((a,b)=>b.id-a.id);
-  document.getElementById('reportTable').innerHTML=tableHtml(data);
-  document.getElementById('totalLtr').innerText="Total Diesel: "+total+" Ltr";
-}
-window.exportCSV = function(){
-  let csv="Date,User,Vehicle,Site,Ltr,Opening,Closing,Run\n"+dbData.entries.map(e=>`${e.date},${e.user},${e.vehical},${e.site},${e.ltr},${e.open},${e.close},${e.close-e.open}`).join("\n");
-  let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download="mehadia_report.csv";a.click();
-}
+function loadAllSelects(){ const ev=document.getElementById('e_vehical'); const es=document.getElementById('e_site'); const ss=document.getElementById('stock_site'); if(ev) ev.innerHTML=dbData.vehical.map(g=>`<option>${g}</option>`).join(''); if(es) es.innerHTML=dbData.site.map(s=>`<option>${s}</option>`).join(''); if(ss) ss.innerHTML=`<option value="">All Sites</option>`+dbData.site.map(s=>`<option>${s}</option>`).join(''); onVehicleChange(); updateStockInfo(); }
+window.onVehicleChange=function(){ let veh=document.getElementById('e_vehical')?.value||''; let isStock=veh.toUpperCase().includes(STOCK_KEYWORD); const kmBox=document.getElementById('kmBox'); const pumpBox=document.getElementById('pumpBox'); const ltrLabel=document.getElementById('ltrLabel'); const saveBtn=document.getElementById('saveBtn'); const lastInfo=document.getElementById('lastInfo'); if(isStock){ if(kmBox) kmBox.classList.add('hidden'); if(pumpBox) pumpBox.classList.remove('hidden'); if(ltrLabel) ltrLabel.innerText="STOCK QTY - IN"; if(saveBtn){ saveBtn.innerText="Add To Stock ➕"; saveBtn.className="w-full mt-7 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black"; } if(lastInfo) lastInfo.classList.add('hidden'); } else { if(kmBox) kmBox.classList.remove('hidden'); if(pumpBox) pumpBox.classList.add('hidden'); if(ltrLabel) ltrLabel.innerText="DIESEL QTY"; if(saveBtn){ saveBtn.innerText="Save Entry — Live Sync ⚡"; saveBtn.className="w-full mt-7 py-4 rounded-2xl bg-slate-900 text-white font-black"; } autoFillOpening(); } updateStockInfo(); }
+window.updateStockInfo=function(){ let site=document.getElementById('e_site')?.value; if(!site) return; let stockData=dbData.stockEntries.filter(s=>s.site===site); let totalIn=stockData.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0); let totalOut=stockData.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0); let bal=totalIn-totalOut; const box=document.getElementById('stockInfo'); if(box){ box.classList.remove('hidden'); box.innerHTML=`🛢️ ${site} • <b>${bal} LTR</b> available • IN ${totalIn} / OUT ${totalOut}`; } }
+window.updateQuickStock=function(){ let totalIn=dbData.stockEntries.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0); let totalOut=dbData.stockEntries.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0); let bal=totalIn-totalOut; const q=document.getElementById('stockQuick'); if(q){ q.innerHTML=`🛢️ Total Stock: <b>${bal} L</b>`; q.classList.remove('hidden'); } }
+window.autoFillOpening=function(){ let veh=document.getElementById('e_vehical')?.value; if(!veh||veh.toUpperCase().includes(STOCK_KEYWORD)) return; let last=dbData.entries.filter(e=>e.vehical===veh).sort((a,b)=>b.id-a.id)[0]; const lastInfo=document.getElementById('lastInfo'); if(last&&last.close){ document.getElementById('e_open').value=last.close; lastInfo.classList.remove('hidden'); lastInfo.innerText=`Last Closing of ${veh} was ${last.close} KM on ${last.date}`; } else { document.getElementById('e_open').value=''; if(lastInfo) lastInfo.classList.add('hidden'); } }
+window.saveEntry=function(){ let vehicalVal=document.getElementById('e_vehical').value; let siteVal=document.getElementById('e_site').value; let dateVal=document.getElementById('e_date').value; let ltrVal=document.getElementById('e_ltr').value; let isStock=vehicalVal.toUpperCase().includes(STOCK_KEYWORD); if(!siteVal||!dateVal||!ltrVal) return alert("Site, Date, Ltr bharo"); if(isStock){ let pumpVal=document.getElementById('e_pump').value; if(!pumpVal) return alert("Pump Name dalo"); let stockObj={id:Date.now(),site:siteVal,date:dateVal,qty:ltrVal,pumpName:pumpVal,type:'IN',user:currentUser.username,vehical:vehicalVal}; push(ref(db,'mehadia_v2/stockEntries'),stockObj); document.getElementById('e_ltr').value=''; document.getElementById('e_pump').value=''; alert("✅ Stock me "+ltrVal+" Ltr ADD ho gaya"); } else { let openVal=document.getElementById('e_open').value; let closeVal=document.getElementById('e_close').value; if(!closeVal) return alert("Closing bharo"); let e={id:Date.now(),user:currentUser.username,vehical:vehicalVal,site:siteVal,date:dateVal,ltr:ltrVal,open:openVal,close:closeVal}; push(ref(db,'mehadia_v2/entries'),e); let stockOut={id:Date.now()+1,site:siteVal,date:dateVal,qty:ltrVal,pumpName:vehicalVal,type:'OUT',user:currentUser.username,vehical:vehicalVal}; push(ref(db,'mehadia_v2/stockEntries'),stockOut); document.getElementById('e_ltr').value=''; document.getElementById('e_close').value=''; } }
+function tableHtml(data){ if(!data.length) return `<div class="text-center py-12"><p class="text-slate-400 text-[13px]">No entries found</p></div>`; return `<table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500 font-bold"><th class="p-3 text-left">Date</th><th class="p-3 text-left">User</th><th class="p-3 text-left">Vehicle</th><th class="p-3 text-left">Site</th><th class="p-3">Ltr</th><th class="p-3">Opening</th><th class="p-3">Closing</th><th class="p-3">Run</th><th class="p-3">Action</th></tr>${data.map(e=>{ let run=(e.close&&e.open)?(e.close-e.open):'-'; return `<tr class="border-t hover:bg-slate-50"><td class="p-3">${e.date}</td><td class="p-3 font-semibold">${e.user}</td><td class="p-3 font-bold">${e.vehical}</td><td class="p-3">${e.site}</td><td class="p-3 font-black">${e.ltr}</td><td class="p-3">${e.open||'-'}</td><td class="p-3 font-bold">${e.close||'-'}</td><td class="p-3">${run}</td><td class="p-3 flex gap-1"><button onclick="editEntry(${e.id})" class="px-3 py-1 bg-slate-900 text-white rounded-full text-[11px] font-bold">Edit</button><button onclick="delEntry('${e.firebaseKey}')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-[11px] font-bold">Del</button></td></tr>` }).join('')}</table>` }
+window.filterMy=function(){ let from=document.getElementById('my_from').value,to=document.getElementById('my_to').value; let data=dbData.entries.filter(e=>e.user===currentUser.username); if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to); data.sort((a,b)=>b.id-a.id); document.getElementById('myTable').innerHTML=tableHtml(data); }
+window.loadAllEntries=function(){ let data=[...dbData.entries].sort((a,b)=>b.id-a.id); document.getElementById('allTable').innerHTML=tableHtml(data); }
+window.editEntry=function(id){ let e=dbData.entries.find(x=>x.id===id); if(!e) return; editId=e.firebaseKey; document.getElementById('e_vehical').value=e.vehical; onVehicleChange(); document.getElementById('e_site').value=e.site; document.getElementById('e_date').value=e.date; document.getElementById('e_ltr').value=e.ltr; document.getElementById('e_open').value=e.open; document.getElementById('e_close').value=e.close; showTab('entry'); document.getElementById('saveBtn').classList.add('hidden'); document.getElementById('updateBtn').classList.remove('hidden'); }
+window.updateEntry=function(){ if(!editId) return; update(ref(db,'mehadia_v2/entries/'+editId),{vehical:document.getElementById('e_vehical').value,site:document.getElementById('e_site').value,date:document.getElementById('e_date').value,ltr:document.getElementById('e_ltr').value,open:document.getElementById('e_open').value,close:document.getElementById('e_close').value}); editId=null; document.getElementById('saveBtn').classList.remove('hidden'); document.getElementById('updateBtn').classList.add('hidden'); alert("Updated Live!"); }
+window.delEntry=function(k){ if(!confirm("Delete?")) return; remove(ref(db,'mehadia_v2/entries/'+k)); }
+window.renderStock=function(){ let siteFilter=document.getElementById('stock_site')?.value; let from=document.getElementById('stock_from')?.value; let to=document.getElementById('stock_to')?.value; let data=[...dbData.stockEntries]; if(siteFilter) data=data.filter(s=>s.site===siteFilter); if(from) data=data.filter(s=>s.date>=from); if(to) data=data.filter(s=>s.date<=to); data.sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id); let sitesToShow=siteFilter?[siteFilter]:dbData.site; let summaryHtml=sitesToShow.map(site=>{ let sd=dbData.stockEntries.filter(s=>s.site===site); let totalIn=sd.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0); let totalOut=sd.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0); let bal=totalIn-totalOut; return `<div class="p-5 rounded-[18px] border bg-white shadow-sm"><div class="flex justify-between"><span class="text-[10px] font-black text-slate-400">${site.toUpperCase()}</span><span class="text-[10px] font-bold px-2 py-1 rounded-full ${bal>0?'bg-green-100 text-green-700':'bg-red-100 text-red-700'}">${bal>0?'Available':'Empty'}</span></div><div class="mt-3 flex gap-2"><span class="px-3 py-1.5 bg-green-50 text-green-700 rounded-full font-black text-[11px]">IN ${totalIn} L</span><span class="px-3 py-1.5 bg-red-50 text-red-700 rounded-full font-black text-[11px]">OUT ${totalOut} L</span></div><div class="mt-4"><p class="text-[28px] font-black">${bal} <span class="text-[14px] text-slate-400">LTR</span></p></div></div>`; }).join(''); document.getElementById('stockSummary').innerHTML=summaryHtml; if(!data.length){ document.getElementById('stockTable').innerHTML=`<div class="text-center py-12 text-slate-400">Koi stock entry nahi</div>`; return; } let running={}; let ledgerRows=data.map(entry=>{ if(!running[entry.site]) running[entry.site]=0; if(entry.type==='IN') running[entry.site]+=parseFloat(entry.qty||0); else running[entry.site]-=parseFloat(entry.qty||0); let isIn=entry.type==='IN'; return `<tr class="border-t"><td class="p-3.5">${entry.date}</td><td class="p-3.5 font-bold">${entry.site}</td><td class="p-3.5"><span class="px-3 py-1 rounded-full text-[10px] font-black ${isIn?'bg-emerald-100 text-emerald-700':'bg-red-100 text-red-700'}">${entry.type}</span></td><td class="p-3.5 font-semibold">${isIn?entry.pumpName:entry.vehical}</td><td class="p-3.5 font-black ${isIn?'text-emerald-600':''}">${isIn?'+':'-'} ${entry.qty} L</td><td class="p-3.5 font-black">${running[entry.site]} L</td><td class="p-3.5 text-[11px] text-slate-500">${entry.user}</td><td class="p-3.5"><button onclick="delStock('${entry.firebaseKey}')" class="px-3 py-1 bg-white border rounded-full text-[11px] font-bold text-red-600">Del</button></td></tr>`; }).join(''); document.getElementById('stockTable').innerHTML=`<table class="w-full text-[12px]"><tr class="bg-slate-50 text-[10px] font-black text-slate-400"><th class="p-3.5 text-left">DATE</th><th class="p-3.5 text-left">SITE</th><th class="p-3.5 text-left">TYPE</th><th class="p-3.5 text-left">PUMP / VEHICLE</th><th class="p-3.5 text-left">QTY</th><th class="p-3.5 text-left">CLOSING</th><th class="p-3.5 text-left">USER</th><th class="p-3.5">ACTION</th></tr>${ledgerRows}</table>`; }
+window.delStock=function(key){ if(!confirm("Stock entry delete kare?")) return; remove(ref(db,'mehadia_v2/stockEntries/'+key)); }
+window.addVehical=function(){ let input=document.getElementById('vehical_no'); if(!input.value) return; if(editVehicalIdx!==null){ dbData.vehical[editVehicalIdx]=input.value; editVehicalIdx=null; document.getElementById('vehicalBtn').innerText="Add"; } else{ dbData.vehical.push(input.value); } saveToFirebase('vehical',dbData.vehical); input.value=''; }
+window.loadVehical=function(){ document.getElementById('vehicalList').innerHTML=dbData.vehical.map((g,i)=>`<div class="p-4 bg-slate-50 rounded-xl flex justify-between mt-2 text-[13px] font-bold"><span>${g}</span><span><button onclick="editVehical(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px]">Edit</button><button onclick="delVehical(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
+window.editVehical=function(i){ document.getElementById('vehical_no').value=dbData.vehical[i]; editVehicalIdx=i; document.getElementById('vehicalBtn').innerText="Update"; }
+window.delVehical=function(i){ if(confirm("Delete?")){ dbData.vehical.splice(i,1); saveToFirebase('vehical',dbData.vehical); } }
+window.addSite=function(){ let input=document.getElementById('site_name'); if(!input.value) return; if(editSiteIdx!==null){ dbData.site[editSiteIdx]=input.value; editSiteIdx=null; document.getElementById('siteBtn').innerText="Add"; } else{ dbData.site.push(input.value); } saveToFirebase('site',dbData.site); input.value=''; }
+window.loadSite=function(){ document.getElementById('siteList').innerHTML=dbData.site.map((s,i)=>`<div class="p-4 bg-slate-50 rounded-xl flex justify-between mt-2 text-[13px]"><span class="font-semibold">${s}</span><span><button onclick="editSite(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px]">Edit</button><button onclick="delSite(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
+window.editSite=function(i){ document.getElementById('site_name').value=dbData.site[i]; editSiteIdx=i; document.getElementById('siteBtn').innerText="Update"; }
+window.delSite=function(i){ if(confirm("Delete?")){ dbData.site.splice(i,1); saveToFirebase('site',dbData.site); } }
+window.addUser=function(){ if(dbData.users.filter(x=>x.role==='user').length>=3 && editUserIdx===null) return alert("Max 3 users"); let un=document.getElementById('u_name').value,ps=document.getElementById('u_pass').value; if(!un) return; if(editUserIdx!==null){ dbData.users[editUserIdx].username=un; dbData.users[editUserIdx].password=ps; editUserIdx=null; document.getElementById('userBtn').innerText="Create"; } else{ dbData.users.push({username:un,password:ps,role:'user'}); } saveToFirebase('users',dbData.users); document.getElementById('u_name').value=''; document.getElementById('u_pass').value=''; }
+window.loadUsers=function(){ document.getElementById('userList').innerHTML=dbData.users.map((u,i)=>`<div class="p-4 bg-slate-50 rounded-xl flex justify-between mt-2 text-[13px]"><span><b>${u.username}</b> (${u.role})</span><span>${u.role!=='admin'?`<button onclick="editUser(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delUser(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button>`:''}</span></div>`).join(''); }
+window.editUser=function(i){ document.getElementById('u_name').value=dbData.users[i].username; document.getElementById('u_pass').value=dbData.users[i].password; editUserIdx=i; document.getElementById('userBtn').innerText="Update"; }
+window.delUser=function(i){ if(confirm("Delete?")){ dbData.users.splice(i,1); saveToFirebase('users',dbData.users); } }
+window.genReport=function(){ let from=document.getElementById('r_from').value,to=document.getElementById('r_to').value,data=dbData.entries; if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to); let total=data.reduce((s,e)=>s+parseFloat(e.ltr||0),0); data.sort((a,b)=>b.id-a.id); document.getElementById('reportTable').innerHTML=tableHtml(data); document.getElementById('totalLtr').innerText="Total Diesel: "+total+" Ltr"; }
+window.exportCSV=function(){ let csv="Date,User,Vehicle,Site,Ltr,Opening,Closing,Run\n"+dbData.entries.map(e=>`${e.date},${e.user},${e.vehical},${e.site},${e.ltr},${e.open},${e.close},${e.close-e.open}`).join("\n"); let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download="mehadia_report.csv";a.click(); }
 </script>
 </body>
 </html>
