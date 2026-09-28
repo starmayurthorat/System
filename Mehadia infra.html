@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mehadia Infra - Premium</title>
+<title>Mehadia Infra - FINAL OPENING FIX</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>*{font-family:'Inter',sans-serif}</style>
 </head>
 <body class="bg-[#f8fafc]">
 <div id="loginPage" class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-  <div class="bg-white rounded-[28px] p-9 w-full max-w-[400px] shadow-[0_30px_80px_rgba(0,0,0,0.3)] border">
+  <div class="bg-white rounded-[28px] p-9 w-full max-w-[400px] shadow-xl border">
     <div class="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-white font-black text-xl">M</div>
     <h2 class="text-[24px] font-black mt-6">MEHADIA INFRA</h2>
     <p class="text-[11px] font-bold tracking-[0.2em] text-slate-400 mt-1">INFRASTRUCTURE</p>
-    <div class="flex items-center gap-2 mt-4"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span><span class="text-[11px] font-bold text-green-600">LIVE SYNC • STOCK SYSTEM</span></div>
+    <div class="flex items-center gap-2 mt-4"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span><span class="text-[11px] font-bold text-green-600">LIVE SYNC • OPENING STOCK</span></div>
     <input id="username" placeholder="Username" class="w-full mt-8 px-5 py-4 rounded-2xl bg-slate-50 border outline-none">
     <input id="password" type="password" placeholder="Password" class="w-full mt-3 px-5 py-4 rounded-2xl bg-slate-50 border outline-none">
     <button onclick="login()" class="w-full mt-6 py-4 rounded-2xl bg-slate-900 text-white font-bold">Login to Dashboard →</button>
@@ -22,7 +22,7 @@
 <div id="appPage" class="hidden min-h-screen">
   <div class="bg-white border-b sticky top-0 z-30">
     <div class="px-6 md:px-8 py-4 flex justify-between items-center max-w-[1600px] mx-auto">
-      <div class="flex items-center gap-4"><div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black">M</div><div><div class="font-black text-[15px]">MEHADIA INFRA</div><div class="text-[10px] text-slate-500 font-bold">PREMIUM • STOCK LEDGER</div></div></div>
+      <div class="flex items-center gap-4"><div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-black">M</div><div><div class="font-black text-[15px]">MEHADIA INFRA</div><div class="text-[10px] text-slate-500 font-bold">OPENING + STOCK LEDGER</div></div></div>
       <div class="flex items-center gap-3"><div id="stockQuick" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-[11px] font-bold text-amber-800"></div><span id="roleShow" class="px-4 py-2 rounded-full bg-slate-900 text-white text-[11px] font-bold"></span><button onclick="logout()" class="px-4 py-2 rounded-full bg-white border text-[11px] font-bold">Logout</button></div>
     </div>
   </div>
@@ -32,7 +32,7 @@
         <p class="text-[10px] font-black tracking-[0.2em] text-slate-400 px-3 py-2">MAIN MENU</p>
         <button id="btn-entry" onclick="showTab('entry')" class="w-full text-left px-4 py-3.5 rounded-xl bg-slate-900 text-white font-bold text-[13px] flex items-center gap-3"><span>⛽</span> Diesel Entry</button>
         <button id="btn-myentry" onclick="showTab('myentry')" class="w-full text-left px-4 py-3.5 rounded-xl hover:bg-slate-50 text-[13px] font-semibold mt-1 flex items-center gap-3 border border-transparent"><span>📋</span> My Entries</button>
-        <button id="btn-stock" onclick="showTab('stock')" class="w-full text-left px-4 py-3.5 rounded-xl hover:bg-slate-50 text-[13px] font-bold mt-1 flex items-center gap-3 border border-transparent"><span>🛢️</span> Stock Ledger <span class="ml-auto text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">NEW</span></button>
+        <button id="btn-stock" onclick="showTab('stock')" class="w-full text-left px-4 py-3.5 rounded-xl hover:bg-slate-50 text-[13px] font-bold mt-1 flex items-center gap-3 border border-transparent"><span>🛢️</span> Stock Ledger</button>
         <div id="adminMenu" class="hidden"><div class="h-[1px] bg-slate-100 my-3"></div><p class="text-[10px] font-black tracking-[0.2em] text-slate-400 px-3 mb-2">ADMIN</p>
           <button id="btn-all" onclick="showTab('all')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>📊</span> All Entries</button>
           <button id="btn-vehical" onclick="showTab('vehical')" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 text-[13px] mt-1 flex items-center gap-3 border border-transparent"><span>🚛</span> Vehicles</button>
@@ -44,7 +44,22 @@
     </div>
     <div class="flex-1 p-4 md:p-6">
       <div id="tab-entry" class="max-w-[680px]"><div class="bg-white rounded-[24px] border shadow-sm p-7 md:p-8"><h3 class="font-black text-[20px]">New Diesel Entry</h3><p class="text-[12px] text-slate-500 mt-1">Select vehicle and stock auto updates</p><label class="text-[10px] font-black text-slate-400 mt-7 block">VEHICLE SELECT</label><select id="e_vehical" onchange="onVehicleChange()" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-semibold"></select><div id="lastInfo" class="hidden mt-3 px-4 py-3 rounded-xl bg-blue-50 border text-blue-700 text-[12px] font-semibold"></div><div id="stockInfo" class="hidden mt-3 px-4 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-[12px] font-bold"></div><label class="text-[10px] font-black text-slate-400 mt-5 block">SITE LOCATION</label><select id="e_site" onchange="updateStockInfo()" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-semibold"></select><div class="grid grid-cols-2 gap-3 mt-5"><div><label class="text-[10px] font-black text-slate-400 block">DATE</label><input type="date" id="e_date" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-semibold"></div><div><label class="text-[10px] font-black text-slate-400 block" id="ltrLabel">DIESEL QTY</label><input type="number" id="e_ltr" placeholder="50" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-50 border font-bold"></div></div><div id="kmBox" class="grid grid-cols-2 gap-3 mt-4"><div><label class="text-[10px] font-black text-slate-400 block">OPENING KM</label><input type="number" id="e_open" class="w-full mt-2 px-5 py-4 rounded-2xl bg-slate-100 border"></div><div><label class="text-[10px] font-black text-slate-900 block">CLOSING KM</label><input type="number" id="e_close" class="w-full mt-2 px-5 py-4 rounded-2xl bg-white border-2 border-slate-900 font-black"></div></div><div id="pumpBox" class="hidden mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200"><label class="text-[10px] font-black text-amber-800 block">PUMP NAME</label><input type="text" id="e_pump" placeholder="HP Pump Tukum" class="w-full mt-2 px-5 py-4 rounded-xl bg-white border border-amber-200 font-semibold"></div><button id="saveBtn" onclick="saveEntry()" class="w-full mt-7 py-4 rounded-2xl bg-slate-900 text-white font-black">Save Entry — Live Sync ⚡</button><button id="updateBtn" onclick="updateEntry()" class="hidden w-full mt-7 py-4 rounded-2xl bg-blue-600 text-white font-black">Update Entry</button></div></div>
-      <div id="tab-stock" class="hidden"><div class="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-[24px] p-7 text-white"><h3 class="font-black text-[22px]">Site Stock Ledger</h3><p class="text-[12px] opacity-90 mt-1">Har site ka alag hisab</p><div class="mt-6 flex gap-2 flex-wrap items-end bg-white/10 rounded-2xl p-4 border border-white/10"><div><label class="text-[10px] font-bold opacity-80">SITE</label><select id="stock_site" onchange="renderStock()" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-slate-900 text-[13px] font-bold"></select></div><div><label class="text-[10px] font-bold opacity-80">FROM</label><input type="date" id="stock_from" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-[13px] font-bold"></div><div><label class="text-[10px] font-bold opacity-80">TO</label><input type="date" id="stock_to" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-[13px] font-bold"></div><button onclick="renderStock()" class="px-6 py-2.5 rounded-xl bg-slate-900 text-white text-[13px] font-black">Show</button></div></div><div id="stockSummary" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6"></div><div class="bg-white rounded-[20px] border shadow-sm mt-6 overflow-hidden"><div id="stockTable" class="overflow-auto"></div></div></div>
+      <div id="tab-stock" class="hidden">
+        <div class="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-[24px] p-7 text-white">
+          <h3 class="font-black text-[22px]">Site Stock Ledger - OPENING FIXED</h3>
+          <p class="text-[12px] opacity-90 mt-1">31.08 ka stock 01.09 filter me Opening me dikhega • 25.00 format • Edit/Delete</p>
+          <div class="mt-6 flex gap-2 flex-wrap items-end bg-white/10 rounded-2xl p-4 border border-white/10">
+            <div><label class="text-[10px] font-bold opacity-80">SITE</label><select id="stock_site" onchange="renderStock()" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-slate-900 text-[13px] font-bold"></select></div>
+            <div><label class="text-[10px] font-bold opacity-80">FROM</label><input type="date" id="stock_from" onchange="renderStock()" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-[13px] font-bold"></div>
+            <div><label class="text-[10px] font-bold opacity-80">TO</label><input type="date" id="stock_to" onchange="renderStock()" class="mt-1 px-4 py-2.5 rounded-xl bg-white text-[13px] font-bold"></div>
+            <button onclick="renderStock()" class="px-6 py-2.5 rounded-xl bg-slate-900 text-white text-[13px] font-black">Show All</button>
+            <button onclick="exportStockCSV()" class="px-6 py-2.5 rounded-xl bg-white text-amber-600 border text-[13px] font-black">📊 Excel</button>
+          </div>
+        </div>
+        <div id="stockSummary" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6"></div>
+        <div id="perDayClosing" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-6"></div>
+        <div class="bg-white rounded-[20px] border shadow-sm mt-6 overflow-hidden"><div id="stockTable" class="overflow-auto"></div></div>
+      </div>
       <div id="tab-myentry" class="hidden bg-white rounded-[20px] border p-6"><h3 class="font-black">My Entries</h3><div class="flex gap-2 mt-4 flex-wrap"><input type="date" id="my_from" class="px-4 py-3 rounded-xl bg-slate-50 border"><input type="date" id="my_to" class="px-4 py-3 rounded-xl bg-slate-50 border"><button onclick="filterMy()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold">Filter</button></div><div id="myTable" class="mt-6 overflow-auto"></div></div>
       <div id="tab-all" class="hidden bg-white rounded-[20px] border p-6"><h3 class="font-black">All Entries</h3><div id="allTable" class="mt-4 overflow-auto"></div></div>
       <div id="tab-vehical" class="hidden bg-white rounded-[20px] border p-6 max-w-xl"><h3 class="font-black">Vehicle Fleet</h3><div class="flex gap-2 mt-4"><input id="vehical_no" placeholder="Add Vehicle" class="flex-1 px-5 py-3.5 rounded-xl bg-slate-50 border"><button onclick="addVehical()" id="vehicalBtn" class="px-6 py-3.5 rounded-xl bg-slate-900 text-white font-bold">Add</button></div><div id="vehicalList" class="mt-5"></div></div>
@@ -59,7 +74,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getDatabase, ref, push, set, onValue, remove, update, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 const firebaseConfig = { apiKey: "AIzaSyAEbSF9JNzP80PmYQ0GVBDShyEVco3F0", authDomain: "mehadia-infrastructure.firebaseapp.com", databaseURL: "https://mehadia-infrastructure-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "mehadia-infrastructure", storageBucket: "mehadia-infrastructure.firebasestorage.app", messagingSenderId: "213393301505", appId: "1:213393301505:web:75e929a983d377d7e32000" };
 const app = initializeApp(firebaseConfig); const db = getDatabase(app);
-let dbData = {users:[], vehical:[], site:[], entries:[], stockEntries:[]}; let currentUser=null, editId=null, editVehicalIdx=null, editSiteIdx=null, editUserIdx=null; const STOCK_KEYWORD = "STOCK";
+let dbData = {users:[], vehical:[], site:[], entries:[], stockEntries:[]}; let currentUser=null, editId=null, editVehicalIdx=null, editSiteIdx=null, editUserIdx=null, editStockKey=null; const STOCK_KEYWORD = "STOCK";
 const defaultData = { users: [{username:'admin',password:'admin123',role:'admin'},{username:'user1',password:'user123',role:'user'},{username:'user2',password:'user123',role:'user'},{username:'user3',password:'user123',role:'user'}], vehical: ['STOCK DIESEL','MH-34 AB 1234'], site: ['Tukum Site','Chandrapur Bypass'] };
 async function initData(){ const snap = await get(ref(db, 'mehadia_v2')); if(!snap.exists()){ await set(ref(db, 'mehadia_v2'), {...defaultData, entries: {}, stockEntries:{}}); } else { const vSnap = await get(ref(db, 'mehadia_v2/vehical')); let v = vSnap.val(); let arr = v? (Array.isArray(v)? v : Object.values(v)) : []; if(!arr.some(x=>x.toUpperCase().includes(STOCK_KEYWORD))){ arr.unshift('STOCK DIESEL'); await set(ref(db, 'mehadia_v2/vehical'), arr); } } } initData();
 onValue(ref(db, 'mehadia_v2/users'), (s)=>{ const val=s.val(); dbData.users=val? (Array.isArray(val)? val : Object.values(val)) : defaultData.users; if(currentUser) loadUsers(); });
@@ -79,30 +94,198 @@ window.showTab=function(t){
   });
   const activeBtn=document.getElementById('btn-'+t);
   if(activeBtn){
-    if(t==='stock'){
-      activeBtn.classList.add('bg-gradient-to-r','from-amber-500','to-orange-500','text-white');
-      activeBtn.classList.remove('hover:bg-slate-50');
-    } else {
-      activeBtn.classList.add('bg-slate-900','text-white');
-      activeBtn.classList.remove('hover:bg-slate-50');
-    }
+    if(t==='stock'){ activeBtn.classList.add('bg-gradient-to-r','from-amber-500','to-orange-500','text-white'); activeBtn.classList.remove('hover:bg-slate-50'); }
+    else { activeBtn.classList.add('bg-slate-900','text-white'); activeBtn.classList.remove('hover:bg-slate-50'); }
   }
   if(t==='myentry') filterMy(); if(t==='all') loadAllEntries(); if(t==='vehical') loadVehical(); if(t==='site') loadSite(); if(t==='user') loadUsers(); if(t==='stock') renderStock();
 }
 function loadAllSelects(){ const ev=document.getElementById('e_vehical'); const es=document.getElementById('e_site'); const ss=document.getElementById('stock_site'); if(ev) ev.innerHTML=dbData.vehical.map(g=>`<option>${g}</option>`).join(''); if(es) es.innerHTML=dbData.site.map(s=>`<option>${s}</option>`).join(''); if(ss) ss.innerHTML=`<option value="">All Sites</option>`+dbData.site.map(s=>`<option>${s}</option>`).join(''); onVehicleChange(); updateStockInfo(); }
 window.onVehicleChange=function(){ let veh=document.getElementById('e_vehical')?.value||''; let isStock=veh.toUpperCase().includes(STOCK_KEYWORD); const kmBox=document.getElementById('kmBox'); const pumpBox=document.getElementById('pumpBox'); const ltrLabel=document.getElementById('ltrLabel'); const saveBtn=document.getElementById('saveBtn'); const lastInfo=document.getElementById('lastInfo'); if(isStock){ if(kmBox) kmBox.classList.add('hidden'); if(pumpBox) pumpBox.classList.remove('hidden'); if(ltrLabel) ltrLabel.innerText="STOCK QTY - IN"; if(saveBtn){ saveBtn.innerText="Add To Stock ➕"; saveBtn.className="w-full mt-7 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black"; } if(lastInfo) lastInfo.classList.add('hidden'); } else { if(kmBox) kmBox.classList.remove('hidden'); if(pumpBox) pumpBox.classList.add('hidden'); if(ltrLabel) ltrLabel.innerText="DIESEL QTY"; if(saveBtn){ saveBtn.innerText="Save Entry — Live Sync ⚡"; saveBtn.className="w-full mt-7 py-4 rounded-2xl bg-slate-900 text-white font-black"; } autoFillOpening(); } updateStockInfo(); }
-window.updateStockInfo=function(){ let site=document.getElementById('e_site')?.value; if(!site) return; let stockData=dbData.stockEntries.filter(s=>s.site===site); let totalIn=stockData.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0); let totalOut=stockData.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0); let bal=totalIn-totalOut; const box=document.getElementById('stockInfo'); if(box){ box.classList.remove('hidden'); box.innerHTML=`🛢️ ${site} • <b>${bal} LTR</b> available • IN ${totalIn} / OUT ${totalOut}`; } }
-window.updateQuickStock=function(){ let totalIn=dbData.stockEntries.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0); let totalOut=dbData.stockEntries.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0); let bal=totalIn-totalOut; const q=document.getElementById('stockQuick'); if(q){ q.innerHTML=`🛢️ Total Stock: <b>${bal} L</b>`; q.classList.remove('hidden'); } }
+window.updateStockInfo=function(){
+  let site=document.getElementById('e_site')?.value;
+  if(!site) return;
+  let stockData=dbData.stockEntries.filter(s=>s.site===site);
+  let totalIn=stockData.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+  let totalOut=stockData.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+  let bal=totalIn-totalOut;
+  const box=document.getElementById('stockInfo');
+  if(box){
+    box.classList.remove('hidden');
+    box.innerHTML=`🛢️ ${site} • <b>${bal.toFixed(2)} LTR</b> available • IN ${totalIn.toFixed(2)} / OUT ${totalOut.toFixed(2)}`;
+  }
+}
+window.updateQuickStock=function(){
+  let totalIn=dbData.stockEntries.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+  let totalOut=dbData.stockEntries.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+  let bal=totalIn-totalOut;
+  const q=document.getElementById('stockQuick');
+  if(q){
+    q.innerHTML=`🛢️ Total Stock: <b>${bal.toFixed(2)} L</b>`;
+    q.classList.remove('hidden');
+  }
+}
 window.autoFillOpening=function(){ let veh=document.getElementById('e_vehical')?.value; if(!veh||veh.toUpperCase().includes(STOCK_KEYWORD)) return; let last=dbData.entries.filter(e=>e.vehical===veh).sort((a,b)=>b.id-a.id)[0]; const lastInfo=document.getElementById('lastInfo'); if(last&&last.close){ document.getElementById('e_open').value=last.close; lastInfo.classList.remove('hidden'); lastInfo.innerText=`Last Closing of ${veh} was ${last.close} KM on ${last.date}`; } else { document.getElementById('e_open').value=''; if(lastInfo) lastInfo.classList.add('hidden'); } }
-window.saveEntry=function(){ let vehicalVal=document.getElementById('e_vehical').value; let siteVal=document.getElementById('e_site').value; let dateVal=document.getElementById('e_date').value; let ltrVal=document.getElementById('e_ltr').value; let isStock=vehicalVal.toUpperCase().includes(STOCK_KEYWORD); if(!siteVal||!dateVal||!ltrVal) return alert("Site, Date, Ltr bharo"); if(isStock){ let pumpVal=document.getElementById('e_pump').value; if(!pumpVal) return alert("Pump Name dalo"); let stockObj={id:Date.now(),site:siteVal,date:dateVal,qty:ltrVal,pumpName:pumpVal,type:'IN',user:currentUser.username,vehical:vehicalVal}; push(ref(db,'mehadia_v2/stockEntries'),stockObj); document.getElementById('e_ltr').value=''; document.getElementById('e_pump').value=''; alert("✅ Stock me "+ltrVal+" Ltr ADD ho gaya"); } else { let openVal=document.getElementById('e_open').value; let closeVal=document.getElementById('e_close').value; if(!closeVal) return alert("Closing bharo"); let e={id:Date.now(),user:currentUser.username,vehical:vehicalVal,site:siteVal,date:dateVal,ltr:ltrVal,open:openVal,close:closeVal}; push(ref(db,'mehadia_v2/entries'),e); let stockOut={id:Date.now()+1,site:siteVal,date:dateVal,qty:ltrVal,pumpName:vehicalVal,type:'OUT',user:currentUser.username,vehical:vehicalVal}; push(ref(db,'mehadia_v2/stockEntries'),stockOut); document.getElementById('e_ltr').value=''; document.getElementById('e_close').value=''; } }
-function tableHtml(data){ if(!data.length) return `<div class="text-center py-12"><p class="text-slate-400 text-[13px]">No entries found</p></div>`; return `<table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500 font-bold"><th class="p-3 text-left">Date</th><th class="p-3 text-left">User</th><th class="p-3 text-left">Vehicle</th><th class="p-3 text-left">Site</th><th class="p-3">Ltr</th><th class="p-3">Opening</th><th class="p-3">Closing</th><th class="p-3">Run</th><th class="p-3">Action</th></tr>${data.map(e=>{ let run=(e.close&&e.open)?(e.close-e.open):'-'; return `<tr class="border-t hover:bg-slate-50"><td class="p-3">${e.date}</td><td class="p-3 font-semibold">${e.user}</td><td class="p-3 font-bold">${e.vehical}</td><td class="p-3">${e.site}</td><td class="p-3 font-black">${e.ltr}</td><td class="p-3">${e.open||'-'}</td><td class="p-3 font-bold">${e.close||'-'}</td><td class="p-3">${run}</td><td class="p-3 flex gap-1"><button onclick="editEntry(${e.id})" class="px-3 py-1 bg-slate-900 text-white rounded-full text-[11px] font-bold">Edit</button><button onclick="delEntry('${e.firebaseKey}')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-[11px] font-bold">Del</button></td></tr>` }).join('')}</table>` }
+window.saveEntry=function(){ let vehicalVal=document.getElementById('e_vehical').value; let siteVal=document.getElementById('e_site').value; let dateVal=document.getElementById('e_date').value; let ltrVal=document.getElementById('e_ltr').value; let isStock=vehicalVal.toUpperCase().includes(STOCK_KEYWORD); if(!siteVal||!dateVal||!ltrVal) return alert("Site, Date, Ltr bharo"); if(isStock){ let pumpVal=document.getElementById('e_pump').value; if(!pumpVal) return alert("Pump Name dalo"); let stockObj={id:Date.now(),site:siteVal,date:dateVal,qty:parseFloat(ltrVal).toFixed(2),pumpName:pumpVal,type:'IN',user:currentUser.username,vehical:vehicalVal}; push(ref(db,'mehadia_v2/stockEntries'),stockObj); document.getElementById('e_ltr').value=''; document.getElementById('e_pump').value=''; alert("✅ Stock me "+ltrVal+" Ltr ADD ho gaya"); } else { let openVal=document.getElementById('e_open').value; let closeVal=document.getElementById('e_close').value; if(!closeVal) return alert("Closing bharo"); let e={id:Date.now(),user:currentUser.username,vehical:vehicalVal,site:siteVal,date:dateVal,ltr:parseFloat(ltrVal).toFixed(2),open:openVal,close:closeVal}; push(ref(db,'mehadia_v2/entries'),e); let stockOut={id:Date.now()+1,site:siteVal,date:dateVal,qty:parseFloat(ltrVal).toFixed(2),pumpName:vehicalVal,type:'OUT',user:currentUser.username,vehical:vehicalVal}; push(ref(db,'mehadia_v2/stockEntries'),stockOut); document.getElementById('e_ltr').value=''; document.getElementById('e_close').value=''; } }
+function tableHtml(data){ if(!data.length) return `<div class="text-center py-12"><p class="text-slate-400 text-[13px]">No entries found</p></div>`; return `<table class="w-full text-[12px]"><tr class="bg-slate-50 text-slate-500 font-bold"><th class="p-3 text-left">Date</th><th class="p-3 text-left">User</th><th class="p-3 text-left">Vehicle</th><th class="p-3 text-left">Site</th><th class="p-3">Ltr</th><th class="p-3">Opening</th><th class="p-3">Closing</th><th class="p-3">Run</th><th class="p-3">Action</th></tr>${data.map(e=>{ let run=(e.close&&e.open)?(e.close-e.open):'-'; return `<tr class="border-t hover:bg-slate-50"><td class="p-3">${e.date}</td><td class="p-3 font-semibold">${e.user}</td><td class="p-3 font-bold">${e.vehical}</td><td class="p-3">${e.site}</td><td class="p-3 font-black">${parseFloat(e.ltr).toFixed(2)}</td><td class="p-3">${e.open||'-'}</td><td class="p-3 font-bold">${e.close||'-'}</td><td class="p-3">${run}</td><td class="p-3 flex gap-1"><button onclick="editEntry(${e.id})" class="px-3 py-1 bg-slate-900 text-white rounded-full text-[11px] font-bold">Edit</button><button onclick="delEntry('${e.firebaseKey}')" class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-[11px] font-bold">Del</button></td></tr>` }).join('')}</table>` }
 window.filterMy=function(){ let from=document.getElementById('my_from').value,to=document.getElementById('my_to').value; let data=dbData.entries.filter(e=>e.user===currentUser.username); if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to); data.sort((a,b)=>b.id-a.id); document.getElementById('myTable').innerHTML=tableHtml(data); }
 window.loadAllEntries=function(){ let data=[...dbData.entries].sort((a,b)=>b.id-a.id); document.getElementById('allTable').innerHTML=tableHtml(data); }
-window.editEntry=function(id){ let e=dbData.entries.find(x=>x.id===id); if(!e) return; editId=e.firebaseKey; document.getElementById('e_vehical').value=e.vehical; onVehicleChange(); document.getElementById('e_site').value=e.site; document.getElementById('e_date').value=e.date; document.getElementById('e_ltr').value=e.ltr; document.getElementById('e_open').value=e.open; document.getElementById('e_close').value=e.close; showTab('entry'); document.getElementById('saveBtn').classList.add('hidden'); document.getElementById('updateBtn').classList.remove('hidden'); }
-window.updateEntry=function(){ if(!editId) return; update(ref(db,'mehadia_v2/entries/'+editId),{vehical:document.getElementById('e_vehical').value,site:document.getElementById('e_site').value,date:document.getElementById('e_date').value,ltr:document.getElementById('e_ltr').value,open:document.getElementById('e_open').value,close:document.getElementById('e_close').value}); editId=null; document.getElementById('saveBtn').classList.remove('hidden'); document.getElementById('updateBtn').classList.add('hidden'); alert("Updated Live!"); }
+window.editEntry=function(id){ let e=dbData.entries.find(x=>x.id===id); if(!e) return; editId=e.firebaseKey; document.getElementById('e_vehical').value=e.vehical; onVehicleChange(); document.getElementById('e_site').value=e.site; document.getElementById('e_date').value=e.date; document.getElementById('e_ltr').value=e.ltr; document.getElementById('e_open').value=e.open; document.getElementById('e_close').value=e.close; showTab('entry'); document.getElementById('saveBtn').classList.add('hidden'); document.getElementById('updateBtn').classList.remove('hidden'); document.getElementById('updateBtn').innerText="Update Entry"; document.getElementById('updateBtn').setAttribute('onclick','updateEntry()'); }
+window.updateEntry=function(){ if(!editId) return; update(ref(db,'mehadia_v2/entries/'+editId),{vehical:document.getElementById('e_vehical').value,site:document.getElementById('e_site').value,date:document.getElementById('e_date').value,ltr:parseFloat(document.getElementById('e_ltr').value).toFixed(2),open:document.getElementById('e_open').value,close:document.getElementById('e_close').value}); editId=null; document.getElementById('saveBtn').classList.remove('hidden'); document.getElementById('updateBtn').classList.add('hidden'); alert("Updated Live!"); }
 window.delEntry=function(k){ if(!confirm("Delete?")) return; remove(ref(db,'mehadia_v2/entries/'+k)); }
-window.renderStock=function(){ let siteFilter=document.getElementById('stock_site')?.value; let from=document.getElementById('stock_from')?.value; let to=document.getElementById('stock_to')?.value; let data=[...dbData.stockEntries]; if(siteFilter) data=data.filter(s=>s.site===siteFilter); if(from) data=data.filter(s=>s.date>=from); if(to) data=data.filter(s=>s.date<=to); data.sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id); let sitesToShow=siteFilter?[siteFilter]:dbData.site; let summaryHtml=sitesToShow.map(site=>{ let sd=dbData.stockEntries.filter(s=>s.site===site); let totalIn=sd.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0); let totalOut=sd.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0); let bal=totalIn-totalOut; return `<div class="p-5 rounded-[18px] border bg-white shadow-sm"><div class="flex justify-between"><span class="text-[10px] font-black text-slate-400">${site.toUpperCase()}</span><span class="text-[10px] font-bold px-2 py-1 rounded-full ${bal>0?'bg-green-100 text-green-700':'bg-red-100 text-red-700'}">${bal>0?'Available':'Empty'}</span></div><div class="mt-3 flex gap-2"><span class="px-3 py-1.5 bg-green-50 text-green-700 rounded-full font-black text-[11px]">IN ${totalIn} L</span><span class="px-3 py-1.5 bg-red-50 text-red-700 rounded-full font-black text-[11px]">OUT ${totalOut} L</span></div><div class="mt-4"><p class="text-[28px] font-black">${bal} <span class="text-[14px] text-slate-400">LTR</span></p></div></div>`; }).join(''); document.getElementById('stockSummary').innerHTML=summaryHtml; if(!data.length){ document.getElementById('stockTable').innerHTML=`<div class="text-center py-12 text-slate-400">Koi stock entry nahi</div>`; return; } let running={}; let ledgerRows=data.map(entry=>{ if(!running[entry.site]) running[entry.site]=0; if(entry.type==='IN') running[entry.site]+=parseFloat(entry.qty||0); else running[entry.site]-=parseFloat(entry.qty||0); let isIn=entry.type==='IN'; return `<tr class="border-t"><td class="p-3.5">${entry.date}</td><td class="p-3.5 font-bold">${entry.site}</td><td class="p-3.5"><span class="px-3 py-1 rounded-full text-[10px] font-black ${isIn?'bg-emerald-100 text-emerald-700':'bg-red-100 text-red-700'}">${entry.type}</span></td><td class="p-3.5 font-semibold">${isIn?entry.pumpName:entry.vehical}</td><td class="p-3.5 font-black ${isIn?'text-emerald-600':''}">${isIn?'+':'-'} ${entry.qty} L</td><td class="p-3.5 font-black">${running[entry.site]} L</td><td class="p-3.5 text-[11px] text-slate-500">${entry.user}</td><td class="p-3.5"><button onclick="delStock('${entry.firebaseKey}')" class="px-3 py-1 bg-white border rounded-full text-[11px] font-bold text-red-600">Del</button></td></tr>`; }).join(''); document.getElementById('stockTable').innerHTML=`<table class="w-full text-[12px]"><tr class="bg-slate-50 text-[10px] font-black text-slate-400"><th class="p-3.5 text-left">DATE</th><th class="p-3.5 text-left">SITE</th><th class="p-3.5 text-left">TYPE</th><th class="p-3.5 text-left">PUMP / VEHICLE</th><th class="p-3.5 text-left">QTY</th><th class="p-3.5 text-left">CLOSING</th><th class="p-3.5 text-left">USER</th><th class="p-3.5">ACTION</th></tr>${ledgerRows}</table>`; }
+window.editStock=function(key){
+  let entry = dbData.stockEntries.find(s=>s.firebaseKey===key);
+  if(!entry) return;
+  document.getElementById('e_site').value = entry.site;
+  document.getElementById('e_date').value = entry.date;
+  document.getElementById('e_ltr').value = parseFloat(entry.qty).toFixed(2);
+  if(entry.type==='IN'){
+    document.getElementById('e_vehical').value = 'STOCK DIESEL';
+    onVehicleChange();
+    document.getElementById('e_pump').value = entry.pumpName;
+  } else {
+    document.getElementById('e_vehical').value = entry.vehical;
+    onVehicleChange();
+  }
+  editStockKey = key;
+  showTab('entry');
+  document.getElementById('saveBtn').classList.add('hidden');
+  document.getElementById('updateBtn').classList.remove('hidden');
+  document.getElementById('updateBtn').innerText = "Update Stock Entry";
+  document.getElementById('updateBtn').setAttribute('onclick','updateStockEntry()');
+}
+window.updateStockEntry=function(){
+  if(!editStockKey) return;
+  let siteVal=document.getElementById('e_site').value;
+  let dateVal=document.getElementById('e_date').value;
+  let ltrVal=document.getElementById('e_ltr').value;
+  let vehicalVal=document.getElementById('e_vehical').value;
+  let isStock=vehicalVal.toUpperCase().includes(STOCK_KEYWORD);
+  let obj = { site: siteVal, date: dateVal, qty: parseFloat(ltrVal).toFixed(2), user: currentUser.username };
+  if(isStock){ obj.pumpName = document.getElementById('e_pump').value; obj.type = 'IN'; obj.vehical = vehicalVal; }
+  else { obj.type = 'OUT'; obj.vehical = vehicalVal; obj.pumpName = vehicalVal; }
+  update(ref(db,'mehadia_v2/stockEntries/'+editStockKey), obj);
+  editStockKey=null;
+  document.getElementById('saveBtn').classList.remove('hidden');
+  document.getElementById('updateBtn').classList.add('hidden');
+  document.getElementById('updateBtn').innerText = "Update Entry";
+  document.getElementById('updateBtn').setAttribute('onclick','updateEntry()');
+  document.getElementById('e_ltr').value=''; document.getElementById('e_pump').value='';
+  alert("Stock Updated ✅"); showTab('stock');
+}
 window.delStock=function(key){ if(!confirm("Stock entry delete kare?")) return; remove(ref(db,'mehadia_v2/stockEntries/'+key)); }
+window.renderStock=function(){
+  let siteFilter=document.getElementById('stock_site')?.value;
+  let from=document.getElementById('stock_from')?.value;
+  let to=document.getElementById('stock_to')?.value;
+  let allData=[...dbData.stockEntries];
+  let openingMap={};
+  dbData.site.forEach(site=>{
+    let before = allData.filter(s=>s.site===site && from && s.date < from);
+    if(!from) before = [];
+    let inQty = before.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+    let outQty = before.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+    openingMap[site] = inQty - outQty;
+  });
+  let sitesToShow=siteFilter?[siteFilter]:dbData.site;
+  let summaryHtml=sitesToShow.map(site=>{
+    let sd=allData.filter(s=>s.site===site);
+    let filteredSd = sd.filter(s=>{
+      if(from && s.date < from) return false;
+      if(to && s.date > to) return false;
+      return true;
+    });
+    let opening = openingMap[site] || 0;
+    let totalIn = filteredSd.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+    let totalOut = filteredSd.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+    let displayOpening = from? opening : 0;
+    let displayBal = from? (opening+totalIn-totalOut) : (sd.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0) - sd.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0));
+    let displayIn = from? totalIn : sd.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+    let displayOut = from? totalOut : sd.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+    return `<div class="p-5 rounded-[18px] border bg-white shadow-sm"><div class="flex justify-between"><span class="text-[10px] font-black text-slate-400">${site.toUpperCase()}</span><span class="text-[10px] font-bold px-2 py-1 rounded-full ${displayBal>0?'bg-green-100 text-green-700':'bg-red-100 text-red-700'}">${displayBal>0?'Available':'Empty'}</span></div>${from? `<div class="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200"><p class="text-[10px] font-bold text-amber-800">OPENING (${from} se pehle ka stock)</p><p class="text-[18px] font-black text-amber-800">${displayOpening.toFixed(2)} LTR</p></div>` : ''}<div class="mt-3"><p class="text-[10px] font-bold text-slate-400">IN ${from?'(Selected Range)':'(Total)'}</p><p class="text-[18px] font-black text-emerald-600">+${displayIn.toFixed(2)} LTR</p></div><div class="mt-2"><p class="text-[10px] font-bold text-slate-400">OUT ${from?'(Selected Range)':'(Total)'}</p><p class="text-[16px] font-black text-red-600">-${displayOut.toFixed(2)} LTR</p></div><div class="h-[1px] bg-slate-100 my-3"></div><div><p class="text-[10px] font-bold text-slate-400">CLOSING = OPEN + IN - OUT</p><p class="text-[26px] font-black">${displayBal.toFixed(2)} <span class="text-[12px] text-slate-400">LTR</span></p><p class="text-[10px] text-slate-500 mt-1">${from?`${displayOpening.toFixed(2)} + ${displayIn.toFixed(2)} - ${displayOut.toFixed(2)} = ${displayBal.toFixed(2)}`:''}</p></div></div>`;
+  }).join('');
+  document.getElementById('stockSummary').innerHTML=summaryHtml;
+  let filtered=[...allData];
+  if(siteFilter) filtered=filtered.filter(s=>s.site===siteFilter);
+  if(from && to){ filtered=filtered.filter(s=>s.date>=from && s.date<=to); }
+  else if(from){ filtered=filtered.filter(s=>s.date>=from); }
+  else if(to){ filtered=filtered.filter(s=>s.date<=to); }
+  filtered.sort((a,b)=>a.date.localeCompare(b.date));
+  let perDayMap={}; let runningTotal={};
+  let sortedAll=[...allData].sort((a,b)=>a.date.localeCompare(b.date));
+  sortedAll.forEach(e=>{
+    if(!runningTotal[e.site]) runningTotal[e.site]=0;
+    if(e.type==='IN') runningTotal[e.site]+=parseFloat(e.qty||0);
+    else runningTotal[e.site]-=parseFloat(e.qty||0);
+    if(!perDayMap[e.date]) perDayMap[e.date]={_in:0,_out:0,_close:{}};
+    if(e.type==='IN') perDayMap[e.date]._in+=parseFloat(e.qty||0);
+    else perDayMap[e.date]._out+=parseFloat(e.qty||0);
+    perDayMap[e.date]._close[e.site]=runningTotal[e.site];
+  });
+  let dates=Object.keys(perDayMap).sort();
+  if(from) dates=dates.filter(d=>d>=from);
+  if(to) dates=dates.filter(d=>d<=to);
+  let perDayHtml=dates.slice(-30).reverse().map(date=>{
+    let d=perDayMap[date];
+    let closings=siteFilter? `${siteFilter}: ${(d._close[siteFilter]||0).toFixed(2)}L` : Object.entries(d._close).map(([s,b])=>`${s}: ${b.toFixed(2)}L`).join(' | ');
+    return `<div class="p-4 rounded-xl bg-white border shadow-sm"><div class="flex justify-between"><span class="font-black text-[13px]">${date}</span><span class="text-[10px] bg-slate-900 text-white px-2 py-1 rounded-full">DAY CLOSE</span></div><div class="mt-2 flex gap-2 flex-wrap"><span class="text-[11px] bg-green-50 text-green-700 px-2 py-1 rounded-full font-bold">IN ${d._in.toFixed(2)} L</span><span class="text-[11px] bg-red-50 text-red-700 px-2 py-1 rounded-full font-bold">OUT ${d._out.toFixed(2)} L</span><span class="text-[11px] bg-slate-900 text-white px-2 py-1 rounded-full font-bold">CLOSE ${Object.values(d._close).reduce((a,b)=>a+b,0).toFixed(2)} L</span></div><div class="mt-2 text-[11px] text-slate-600">${closings}</div></div>`;
+  }).join('');
+  document.getElementById('perDayClosing').innerHTML=perDayHtml || '<div class="p-4 text-slate-400 text-[12px]">No data</div>';
+  if(!filtered.length){
+    let openingText = from? `Opening till ${from} is ${siteFilter? (openingMap[siteFilter]||0).toFixed(2) : Object.values(openingMap).reduce((a,b)=>a+b,0).toFixed(2)} LTR` : '';
+    document.getElementById('stockTable').innerHTML=`<div class="text-center py-12 text-slate-400">${openingText}<br>No entry in this date range<br><button onclick="document.getElementById('stock_from').value='';document.getElementById('stock_to').value='';renderStock()" class="mt-2 px-4 py-2 bg-slate-900 text-white rounded-full text-[11px]">Show All Entries</button></div>`; return;
+  }
+  let run={};
+  if(from){ Object.keys(openingMap).forEach(site=>{ run[site]=openingMap[site]||0; }); }
+  let rows=filtered.map(e=>{
+    if(!run[e.site]) run[e.site]= from? (openingMap[e.site]||0) : 0;
+    if(e.type==='IN') run[e.site]+=parseFloat(e.qty||0);
+    else run[e.site]-=parseFloat(e.qty||0);
+    let isIn=e.type==='IN';
+    return `<tr class="border-t"><td class="p-3.5">${e.date}</td><td class="p-3.5 font-bold">${e.site}</td><td class="p-3.5"><span class="px-2 py-1 rounded-full text-[10px] font-black ${isIn?'bg-emerald-100 text-emerald-700':'bg-red-100 text-red-700'}">${isIn?'IN':'OUT'}</span></td><td class="p-3.5">${isIn?e.pumpName:e.vehical}</td><td class="p-3.5 font-black ${isIn?'text-emerald-600':'text-red-600'}">${isIn?'+':''}${parseFloat(e.qty).toFixed(2)} L</td><td class="p-3.5 font-black">${run[e.site].toFixed(2)} L</td><td class="p-3.5 flex gap-1"><button onclick="editStock('${e.firebaseKey}')" class="px-3 py-1 bg-slate-900 text-white rounded-full text-[11px] font-bold">Edit</button><button onclick="delStock('${e.firebaseKey}')" class="px-3 py-1 bg-white border rounded-full text-[11px] font-bold text-red-600">Del</button></td></tr>`;
+  }).join('');
+  let openingRow = '';
+  if(from){
+    let openingSites = siteFilter? [siteFilter] : dbData.site;
+    openingRow = openingSites.map(site=>`<tr class="bg-amber-50 border-t-2 border-amber-200"><td class="p-3.5 font-black">${from}</td><td class="p-3.5 font-bold">${site}</td><td class="p-3.5"><span class="px-2 py-1 rounded-full text-[10px] font-black bg-slate-900 text-white">OPENING</span></td><td class="p-3.5 text-[11px] text-slate-600">Before ${from}</td><td class="p-3.5">-</td><td class="p-3.5 font-black text-amber-700">${(openingMap[site]||0).toFixed(2)} L</td><td class="p-3.5">-</td></tr>`).join('');
+  }
+  document.getElementById('stockTable').innerHTML=`<table class="w-full text-[12px]"><tr class="bg-slate-50 text-[10px] font-black text-slate-400"><th class="p-3.5 text-left">DATE</th><th class="p-3.5 text-left">SITE</th><th class="p-3.5 text-left">TYPE</th><th class="p-3.5 text-left">PUMP/VEHICLE</th><th class="p-3.5 text-left">QTY</th><th class="p-3.5 text-left">CLOSING</th><th class="p-3.5">ACTION</th></tr>${openingRow}${rows}</table>`;
+}
+window.exportStockCSV=function(){
+  let siteFilter=document.getElementById('stock_site')?.value;
+  let from=document.getElementById('stock_from')?.value;
+  let to=document.getElementById('stock_to')?.value;
+  let data=[...dbData.stockEntries];
+  if(siteFilter) data=data.filter(s=>s.site===siteFilter);
+  if(from) data=data.filter(s=>s.date>=from);
+  if(to) data=data.filter(s=>s.date<=to);
+  data.sort((a,b)=>a.date.localeCompare(b.date));
+  let csv="Date,Site,Type,Qty,Pump_Vehicle,Closing\n";
+  let running={};
+  // Opening calc for export
+  let openingMap={};
+  if(from){
+    dbData.site.forEach(site=>{
+      let before = dbData.stockEntries.filter(s=>s.site===site && s.date < from);
+      let inQty = before.filter(s=>s.type==='IN').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+      let outQty = before.filter(s=>s.type==='OUT').reduce((a,b)=>a+parseFloat(b.qty||0),0);
+      openingMap[site]=inQty-outQty;
+      if(!siteFilter || siteFilter===site) running[site]=openingMap[site];
+    });
+    Object.entries(openingMap).forEach(([site,bal])=>{
+      if(!siteFilter || siteFilter===site) csv+=`${from},${site},OPENING,${bal.toFixed(2)},Before ${from},${bal.toFixed(2)}\n`;
+    });
+  }
+  data.forEach(e=>{
+    if(!running[e.site]) running[e.site]= from? (openingMap[e.site]||0) : 0;
+    if(e.type==='IN') running[e.site]+=parseFloat(e.qty||0);
+    else running[e.site]-=parseFloat(e.qty||0);
+    csv+=`${e.date},${e.site},${e.type},${parseFloat(e.qty).toFixed(2)},${e.type==='IN'?e.pumpName:e.vehical},${running[e.site].toFixed(2)}\n`;
+  });
+  let a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`stock_${siteFilter||'all'}_${from||'start'}_to_${to||'today'}.csv`;
+  a.click();
+}
 window.addVehical=function(){ let input=document.getElementById('vehical_no'); if(!input.value) return; if(editVehicalIdx!==null){ dbData.vehical[editVehicalIdx]=input.value; editVehicalIdx=null; document.getElementById('vehicalBtn').innerText="Add"; } else{ dbData.vehical.push(input.value); } saveToFirebase('vehical',dbData.vehical); input.value=''; }
 window.loadVehical=function(){ document.getElementById('vehicalList').innerHTML=dbData.vehical.map((g,i)=>`<div class="p-4 bg-slate-50 rounded-xl flex justify-between mt-2 text-[13px] font-bold"><span>${g}</span><span><button onclick="editVehical(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px]">Edit</button><button onclick="delVehical(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button></span></div>`).join(''); }
 window.editVehical=function(i){ document.getElementById('vehical_no').value=dbData.vehical[i]; editVehicalIdx=i; document.getElementById('vehicalBtn').innerText="Update"; }
@@ -115,8 +298,8 @@ window.addUser=function(){ if(dbData.users.filter(x=>x.role==='user').length>=3 
 window.loadUsers=function(){ document.getElementById('userList').innerHTML=dbData.users.map((u,i)=>`<div class="p-4 bg-slate-50 rounded-xl flex justify-between mt-2 text-[13px]"><span><b>${u.username}</b> (${u.role})</span><span>${u.role!=='admin'?`<button onclick="editUser(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px]">Edit</button> <button onclick="delUser(${i})" class="px-3 py-1 bg-white border rounded-full text-[11px] text-red-600">Del</button>`:''}</span></div>`).join(''); }
 window.editUser=function(i){ document.getElementById('u_name').value=dbData.users[i].username; document.getElementById('u_pass').value=dbData.users[i].password; editUserIdx=i; document.getElementById('userBtn').innerText="Update"; }
 window.delUser=function(i){ if(confirm("Delete?")){ dbData.users.splice(i,1); saveToFirebase('users',dbData.users); } }
-window.genReport=function(){ let from=document.getElementById('r_from').value,to=document.getElementById('r_to').value,data=dbData.entries; if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to); let total=data.reduce((s,e)=>s+parseFloat(e.ltr||0),0); data.sort((a,b)=>b.id-a.id); document.getElementById('reportTable').innerHTML=tableHtml(data); document.getElementById('totalLtr').innerText="Total Diesel: "+total+" Ltr"; }
-window.exportCSV=function(){ let csv="Date,User,Vehicle,Site,Ltr,Opening,Closing,Run\n"+dbData.entries.map(e=>`${e.date},${e.user},${e.vehical},${e.site},${e.ltr},${e.open},${e.close},${e.close-e.open}`).join("\n"); let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download="mehadia_report.csv";a.click(); }
+window.genReport=function(){ let from=document.getElementById('r_from').value,to=document.getElementById('r_to').value,data=dbData.entries; if(from) data=data.filter(e=>e.date>=from); if(to) data=data.filter(e=>e.date<=to); let total=data.reduce((s,e)=>s+parseFloat(e.ltr||0),0); data.sort((a,b)=>b.id-a.id); document.getElementById('reportTable').innerHTML=tableHtml(data); document.getElementById('totalLtr').innerText="Total Diesel: "+total.toFixed(2)+" Ltr"; }
+window.exportCSV=function(){ let csv="Date,User,Vehicle,Site,Ltr,Opening,Closing,Run\n"+dbData.entries.map(e=>`${e.date},${e.user},${e.vehical},${e.site},${parseFloat(e.ltr).toFixed(2)},${e.open},${e.close},${e.close-e.open}`).join("\n"); let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download="mehadia_report.csv";a.click(); }
 </script>
 </body>
 </html>
